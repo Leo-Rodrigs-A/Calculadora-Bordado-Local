@@ -1,6 +1,53 @@
 header{
+    margin: auto;
+    margin-bottom: 25px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
     max-width: 1280px;
     width: 60%;
     height: 50px;
+    background: #fdf5ed;
+    border-radius: 4px;
+    padding: 8px;
 }
 
+.container{    
+    margin: auto;
+    margin-bottom: 25px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 1280px;
+    width: 60%;
+    border-radius: 4px;
+}
+
+.acoes{
+    background: #fdf5ed;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px; 
+}
+
+.container .acoes .pesquisa{
+    width: 80%;
+    height: 35px;
+    border: solid;
+    border-color: #b66616;
+    border-radius: 5px;
+    border-width: 2px;
+    background: url('../img/lupa.svg') no-repeat 97%;
+    padding-left: 40px;
+
+}
+
+input::placeholder{
+    color: #ddc7ad;
+    font-size: 18px;
+}
+
+.container .acoes .pesquisa:focus, .container .acoes .pesquisa:focus-visible{
+    outline: none;
+}
