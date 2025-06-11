@@ -1,14 +1,15 @@
 header{
     margin: auto;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     margin-top: 15px;
     display: flex;
     justify-content: center;
     max-width: 1280px;
-    width: 60%;
-    height: 50px;
+    width: 80%;
+    height: 80px;
     background: #fdf5ed;
-    border-radius: 4px;
+    border-radius: 6px;
+    box-sizing: border-box;
     padding: 8px;
 }
 
@@ -18,36 +19,78 @@ header{
     margin-top: 15px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
     max-width: 1280px;
-    width: 60%;
-    border-radius: 4px;
+    width: 80%;
+    gap: 20px;
+    box-sizing: border-box;
+    border-radius: 6px;
 }
 
 .acoes{
     background: #fdf5ed;
     display: flex;
     justify-content: space-between;
-    padding: 20px; 
+    padding: 20px;
+    gap: 5%;
 }
 
 .container .acoes .pesquisa{
-    width: 80%;
+    width: 70%;
     height: 35px;
     border: solid;
     border-color: #b66616;
     border-radius: 5px;
     border-width: 2px;
-    background: url('../img/lupa.svg') no-repeat 97%;
-    padding-left: 40px;
-
+    background: url('../img/lupa.svg') no-repeat 2%;
+    padding-left: 45px;
+    font-size: 14px;
 }
 
 input::placeholder{
     color: #ddc7ad;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .container .acoes .pesquisa:focus, .container .acoes .pesquisa:focus-visible{
     outline: none;
+}
+
+.container .acoes .novoOrcamento{
+    width: 24%;
+    background-color: #fae7d2;
+    border: none;
+    border-radius: 10px;
+    font-weight: 800;
+    transition: 0.4s;
+}
+
+.container .acoes .novoOrcamento:hover{
+    background-color: #f3d1ab;
+    cursor: pointer;
+}
+
+.container .acoes .novoOrcamento:focus,
+.container .acoes .novoOrcamento:focus-visible{
+    outline: solid 2.5px;
+}
+
+.container .recentes{
+    background: #fdf5ed;
+    padding: 20px;
+    list-style-type: none;
+    border-radius: 6px;
+    display: flex;
+}
+
+
+
+footer{
+    margin: auto;
+    background: #fdf5ed;
+    max-width: 1280px;
+    width: 80%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
