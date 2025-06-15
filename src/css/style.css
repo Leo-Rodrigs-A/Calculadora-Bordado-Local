@@ -32,6 +32,7 @@ header{
     justify-content: space-between;
     padding: 20px;
     gap: 5%;
+    border: #b66616;
 }
 
 .container .acoes .pesquisa{
@@ -60,7 +61,7 @@ input::placeholder{
     background-color: #fae7d2;
     border: none;
     border-radius: 10px;
-    font-weight: 800;
+    font-weight: 600;
     transition: 0.4s;
 }
 
@@ -72,6 +73,34 @@ input::placeholder{
 .container .acoes .novoOrcamento:focus,
 .container .acoes .novoOrcamento:focus-visible{
     outline: solid 2.5px;
+}
+
+
+.container .variaveis{
+    background-color: #fdf5ed;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    
+}
+
+.container .variaveis div{
+    text-align: center;
+    background-color: #fae7d2;
+    border-radius: 8px;
+    width: 23%;
+    padding: 5px;
+}
+
+.container .variaveis span{
+    font-size: 16px;    
+    color: #f3d1ab;
+    background-color: #fdf5ed;
+    display: flex;
+    justify-content: center;
+    padding: 5px 10px;
+    margin: 6px;
 }
 
 .container .recentes{
