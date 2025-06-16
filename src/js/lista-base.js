@@ -1,0 +1,123 @@
+export let listaOrcamentos = [
+    {
+        id: "1",
+        dataCriacao: "2025-06-12",
+        nomeMatriz: "Bandeira Aplique",
+        qtdPontos: 1854,
+        temMatriz: true,
+        urgencia: false,
+        materialDoCliente: false,
+        valores: ["8","8","8","8","8","8","8","8"]
+    },
+    {
+        id: "2",
+        dataCriacao: "2025-06-11",
+        nomeMatriz: "Cartório",
+        qtdPontos: 16728,
+        temMatriz: true,
+        urgencia: false,
+        materialDoCliente: false,
+        valores: ["31","25","22","20","19","17","14","13"]
+    },
+    {
+        id: "3",
+        dataCriacao: "2025-06-10",
+        nomeMatriz: "Integração",
+        qtdPontos: 3164,
+        temMatriz: true,
+        urgencia: false,
+        materialDoCliente: false,
+        valores: ["15","12","11","10","9","9","8","8"]
+    },
+    {
+        id: "4",
+        dataCriacao: "2025-06-09",
+        nomeMatriz: "Imediata",
+        qtdPontos: 4310,
+        temMatriz: true,
+        urgencia: false,
+        materialDoCliente: false,
+        valores: ["15","12","11","10","9","9","8","8"]
+    },
+    {
+        id: "5",
+        dataCriacao: "2025-06-08",
+        nomeMatriz: "Dcumer do sertão",
+        qtdPontos: 4713,
+        temMatriz: true,
+        urgencia: false,
+        materialDoCliente: false,
+        valores: ["15","12","11","10","9","9","8","8"]
+    },
+    {
+        id: "6",
+        dataCriacao: "2025-06-07",
+        nomeMatriz: "Unopar",
+        qtdPontos: 6426,
+        temMatriz: true,
+        urgencia: false,
+        materialDoCliente: false,
+        valores: ["16","13","12","11","10","9","8","8"]
+    },
+    {
+        id: "7",
+        dataCriacao: "2025-06-06",
+        nomeMatriz: "Wyll Farma",
+        qtdPontos: 1933,
+        temMatriz: true,
+        urgencia: false,
+        materialDoCliente: false,
+        valores: ["15","12","11","10","9","9","8","8"]
+    },
+    {
+        id: "8",
+        dataCriacao: "2025-06-05",
+        nomeMatriz: "Maria de Ló",
+        qtdPontos: 3940,
+        temMatriz: true,
+        urgencia: false,
+        materialDoCliente: false,
+        valores: ["15","12","11","10","9","9","8","8"]
+    },
+    {
+        id: "9",
+        dataCriacao: "2025-06-04",
+        nomeMatriz: "Creche Tia Geraldinha",
+        qtdPontos: 2220,
+        temMatriz: true,
+        urgencia: false,
+        materialDoCliente: false,
+        valores: ["15","12","11","10","9","9","8","8"]
+    },
+    {
+        id: "10",
+        dataCriacao: "2025-06-03",
+        nomeMatriz: "Escola Eduardo",
+        qtdPontos: 17503,
+        temMatriz: true,
+        urgencia: false,
+        materialDoCliente: false,
+        valores: ["31","25","22","21","19","18","14","13"]
+    },
+    {
+        id: "11",
+        dataCriacao: "2025-06-02",
+        nomeMatriz: "Maria Bunita",
+        qtdPontos: 5953,
+        temMatriz: true,
+        urgencia: false,
+        materialDoCliente: false,
+        valores: ["15","12","11","10","9","9","8","8"]
+    },
+    {
+        id: "12",
+        dataCriacao: "2025-06-01",
+        nomeMatriz: "Prefeitura Araripina",
+        qtdPontos: 10036,
+        temMatriz: true,
+        urgencia: false,
+        materialDoCliente: false,
+        valores: ["21","17","15","14","13","12","10","9"]
+    },
+
+]
