@@ -42,15 +42,34 @@
         
         <div class="acoes">
             <input type="text" class="pesquisa" placeholder="Procurar orçamento">
-            <input type="button" value="Novo" class="novoOrcamento">  
+            <input type="button" value="Novo" id="botaoNovoOrcamento">  
         </div>        
 
         <ul class="recentes">
             
         </ul>
+        
     </main>
     
     <footer> Leo de Vanda produções &copy;</footer>
+
+
+    <dialog id="novoOrcamento">
+        <form method="dialog">
+            <section class="formulario">
+                <h2>Novo Orcamento</h2>
+
+                <label for="nomeMatriz">Nome da Matriz:</label>
+                <input type="text" id="nomeMatriz" required>
+
+                <label for="qtdPontos">Quantidade de pontos do bordado:</label>
+                <input type="number" id="qtdPontos" required>
+
+                <input type="button" value="Calcular">
+            </section>
+            <button id="salvarOrcamento" type="submit"></button>
+        </form>
+    </dialog>
 
     <script type="module" src="./src/js/main.js"></script>
 
