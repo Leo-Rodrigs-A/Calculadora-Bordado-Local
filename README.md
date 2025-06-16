@@ -1,4 +1,8 @@
 # 🧵 Embroidery Quote Calculator
+![HTML5](https://img.shields.io/badge/HTML5-%23E34F26.svg?style=flat&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-%231572B6.svg?style=flat&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-%23F7DF1E.svg?style=flat&logo=javascript&logoColor=black)
+
 
 This project is a web-based calculator designed to manage embroidery quotes in a practical, fast, and organized way. It was built to solve real-world needs within a clothing production environment and also served as a hands-on learning exercise in programming and web development.
 
