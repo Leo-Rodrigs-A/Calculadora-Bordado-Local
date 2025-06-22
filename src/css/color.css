@@ -1,0 +1,67 @@
+:root{
+    --bege-claro: #FDF5ED;
+    --bege: #FAE7D2;
+    --bege-escuro: #E9C59E;
+    --marrom-leve: #C98949;
+    --marrom: #B66616;
+}
+
+
+
+
+.bg-bege-claro-padrao{
+    background-color: var(--bege-claro);
+    color: var(--marrom-leve);
+    border-color: var(--marrom-leve);
+}
+
+.bg-bege-claro-alt{
+    background-color: var(--bege-claro);
+    color: var(--marrom);
+    border-color: var(--marrom);
+}
+
+
+
+.bg-bege-padrao{
+    background-color: var(--bege);
+    color: var(--marrom-leve);
+    border-color: var(--marrom-leve);
+}
+
+.bg-bege-alt{
+    background-color: var(--bege);
+    color: var(--bege-escuro);
+    border-color: var(--bege-escuro);
+}
+
+
+
+.bg-bege-escuro-padrao{
+    background-color: var(--bege-escuro);
+    color: var(--bege-claro);
+    border-color: var(--bege-claro);
+}
+
+.bg-bege-escuro-alt{
+    background-color: var(--bege-escuro);
+    color: var(--marrom);
+    border-color: var(--marrom);
+}
+
+
+
+.bg-marrom-leve{
+    background-color: var(--marrom-leve);
+    color: var(--bege-claro);
+    border-color: var(--bege-claro);
+}
+
+
+
+.bg-marrom{
+    background-color: var(--marrom);
+    color: var(--bege-claro);
+    border-color: var(--bege-claro);
+}
+

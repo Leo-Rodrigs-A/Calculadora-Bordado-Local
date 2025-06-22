@@ -1,164 +1,104 @@
-header{
+body{
     margin: auto;
-    margin-bottom: 20px;
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    max-width: 1280px;
-    width: 80%;
-    height: 80px;
-    background: #fdf5ed;
-    border-radius: 6px;
-    box-sizing: border-box;
-    padding: 8px;
-}
-
-.container{    
-    margin: auto;
-    margin-bottom: 25px;
-    margin-top: 15px;
     display: flex;
     flex-direction: column;
-    max-width: 1280px;
-    width: 80%;
-    gap: 20px;
-    box-sizing: border-box;
-    border-radius: 6px;
-}
-
-.acoes{
-    background: #fdf5ed;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    gap: 5%;
-    border: #b66616;
-}
-
-.container .acoes .pesquisa{
-    width: 70%;
-    height: 35px;
-    border: solid;
-    border-color: #b66616;
-    border-radius: 5px;
-    border-width: 2px;
-    background: url('../img/lupa.svg') no-repeat 2%;
-    padding-left: 45px;
-    font-size: 14px;
-}
-
-input::placeholder{
-    color: #ddc7ad;
-    font-size: 14px;
-}
-
-.container .acoes .pesquisa:focus, .container .acoes .pesquisa:focus-visible{
-    outline: none;
-}
-
-.container .acoes #botaoNovoOrcamento{
-    width: 24%;
-    background-color: #fae7d2;
-    border: none;
-    border-radius: 10px;
-    font-weight: 600;
-    transition: 0.4s;
-}
-
-.container .acoes #botaoNovoOrcamento:hover{
-    background-color: #f3d1ab;
-    cursor: pointer;
-}
-
-.container .acoes #botaoNovoOrcamento:focus,
-.container .acoes #botaoNovoOrcamento:focus-visible{
-    outline: solid 2.5px;
-}
-
-
-.container .variaveis{
-    background-color: #fdf5ed;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    font-weight: 600;
-    
-}
-
-.container .variaveis div{
-    text-align: center;
-    background-color: #fae7d2;
-    border-radius: 8px;
-    width: 23%;
-    padding: 5px;
-}
-
-.container .variaveis span{
-    font-size: 16px;    
-    color: #f3d1ab;
-    background-color: #fdf5ed;
-    display: flex;
     justify-content: center;
-    padding: 5px 10px;
-    margin: 6px;
+    gap: 24px;
+    padding: 24px 80px;
+    max-width: 1440px;
 }
 
-.container .recentes{
-    background: #fdf5ed;
-    padding: 20px;
-    list-style-type: none;
-    border-radius: 6px;
-    display: flex;
-    gap: 10px;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-    
-}
-
-.container .bordado{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    width: 30%;
-    background: #fae7d2;
-    padding: 4px;
-    border-radius: 4px;
-    transition: 0.4s ease, box-shadow 0.4s ease;
-}
-
-.container .bordado:hover{
-    cursor: pointer;
-    transform: scale(1.02);
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-    z-index: 1;  
-}
-
-.container .bordado .dataCriacao, h3{
-    width: 100%;
-    font-weight: 700;
-}
-
-.container .recentes .carregarMais{
-    transition: 0.3s;
-}
-
-.container .recentes .carregarMais:hover{
-    cursor: pointer;
-    color: red;
-}
-
-
-
-
-
-footer{
-    margin: auto;
-    background: #fdf5ed;
-    max-width: 1280px;
-    width: 80%;
-    height: 80px;
+header{
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
+    max-width: 1280px;
+    border-radius: 24px;
+    padding: 12px 16px;
+}
+
+header img{
+    height: 75px;
+    width: auto;
+    display: block;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    max-width: 1280px;
+    gap: 24px;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+.container .variaveis{
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    font-weight: 700;
+    border-radius: 24px;
+}
+
+.container .variaveis div{
+    display: flex;    
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    border-radius: 24px;
+    padding: 12px;
+}
+
+
+
+.container .botoes{
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 36px;
+    border-radius: 24px;
+    gap: 16px;
+}
+
+.container .botoes .pesquisa{
+    width: 100%;
+    border: solid;
+    border-radius: 24px;
+    border-width: 2px;
+    background: url('../img/lupa.svg') no-repeat 4%;
+    padding: 0px 6%;
+}
+
+input::placeholder{
+    color: inherit;
+}
+
+.container .botoes .pesquisa:focus, .container .botoes .pesquisa:focus-visible{
+    outline: none;
+}
+
+.container .botoes #botaoNovoOrcamento{
+    border: none;
+    border-radius: 24px;
+    font-weight: 700;
+    transition: 0.4s;
+    padding: 12px 64px;
+}
+
+.container .botoes #botaoNovoOrcamento:hover{
+    cursor: pointer;
+}
+
+.container .botoes #botaoNovoOrcamento:focus,
+.container .botoes #botaoNovoOrcamento:focus-visible{
+    outline: solid 2.5px;
+}
+
+footer{
+    max-width: 1280px;
+    display: flex;
+    justify-content: center;
+    padding: 30px 0px;
+    border-radius: 24px;
 }

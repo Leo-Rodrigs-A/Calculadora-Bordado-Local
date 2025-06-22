@@ -6,12 +6,14 @@ listaOrcamentos.forEach((bordado, index) => {
 
   const novoBordado = document.createElement('li');
   novoBordado.className = 'novoBordado';
-  novoBordado.id = bordado.id
+  novoBordado.classList.add('bg-bege-padrao');
+  novoBordado.id = bordado.id;
 
-  const headBordado = document.createElement('section')
+  const headBordado = document.createElement('section');
   headBordado.className = 'headBordado';
+  headBordado.classList.add('bg-bege-escuro-padrao');
 
-  const bodyBordado = document.createElement('section')
+  const bodyBordado = document.createElement('section');
   bodyBordado.className = 'bodyBordado';
 
   // até esse ponto, eu criei os campos principais da estrutura
@@ -22,8 +24,10 @@ listaOrcamentos.forEach((bordado, index) => {
   nomeBordado.className = 'nomeBordado';
   nomeBordado.innerText = bordado.nomeMatriz;
 
-  const editIcon = document.createElement('div');
-  editIcon.className = 'editIcon';
+  const editIcon = document.createElement('img');
+  editIcon.src = 'src/img/edit-icon.svg';
+  editIcon.alt = 'Editar';
+  editIcon.className = 'editIcon bg-bege-claro-padrao';
 
   
   // caixa da data
@@ -35,12 +39,12 @@ listaOrcamentos.forEach((bordado, index) => {
   spanData.textContent = 'Criado em:';
 
   const dataCriacao = document.createElement('span');
-  dataCriacao.className = 'dataCriacao';
+  dataCriacao.className = 'dataCriacao bold';
   dataCriacao.textContent = bordado.dataCriacao;
 
   
   // linha divisora n1
-  const divLine1 = document.createElement('div');
+  const divLine1 = document.createElement('hr');
   divLine1.className = 'divLine';
   divLine1.id = 'divLine1';
 
@@ -54,13 +58,13 @@ listaOrcamentos.forEach((bordado, index) => {
   spanPontos.textContent = 'Quantidade de Pontos:';
 
   const qtdPontos = document.createElement('span');
-  qtdPontos.className = 'qtdPontos';
-  qtdPontos.textContent = bordado.qtdPontos;
+  qtdPontos.className = 'qtdPontos bold';
+  qtdPontos.textContent = bordado.qtdPontos.toLocaleString('pt-BR');
 
 
   
   // linha divisora n2
-  const divLine2 = document.createElement('div');
+  const divLine2 = document.createElement('hr');
   divLine2.className = 'divLine';
   divLine2.id = 'divLine2';
 
@@ -74,7 +78,7 @@ listaOrcamentos.forEach((bordado, index) => {
   spanValor.textContent = 'Valor para uma Unidade: ';
   
   const valorPraUm = document.createElement('span');
-  valorPraUm.className = 'valorPraUm';
+  valorPraUm.className = 'valorPraUm bold';
   valorPraUm.textContent = Number(bordado.valores[0]).toLocaleString('PT-BR', {
     style: 'currency',
     currency: 'BRL'
@@ -104,11 +108,6 @@ listaOrcamentos.forEach((bordado, index) => {
 
   montarLista.appendChild(novoBordado);  
 });
-
-const loadMore = document.createElement('p')
-loadMore.className = 'carregarMais'
-loadMore.textContent = 'carregar mais...'
-montarLista.appendChild(loadMore);
 
 return montarLista;
 }

@@ -11,13 +11,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/reset.css">    
     <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/color.css">
+    <link rel="stylesheet" href="./src/css/lista.css">
 
 </head>
 <body>
 
-    <header>
+    <header class="bg-bege-claro-padrao">
         <img src="./src/img/logo-dtex.webp" alt="Logo Dtex">
     </header>
    
@@ -25,33 +27,46 @@
 
         <div class="variaveis">
             
-            <div id="valorMatriz" >
-                <span>Criação da matriz:</span>
+            <div id="valorMatriz" class="bg-bege-claro-padrao">
+                <h5 class="bg-bege-claro-alt">Criação da matriz</h5>
+                <h6>R$ 30,00</h6>
             </div>
-            <div id="valorPorMilPontos">
-                <span>Valor por cada mil pontos:</span>                
+            <div id="valorPorMilPontos" class="bg-bege-claro-padrao">
+                <h5 class="bg-bege-claro-alt">Valor por mil pontos</h5>
+                <h6>R$ 1,40</h6>               
             </div>
-            <div id="menorPrecoGlobal">
-                <span>Menor preço Geral R$:</span>                
+            <div id="precoUnidade" class="bg-bege-claro-padrao">
+                <h5 class="bg-bege-claro-alt">Valor mínimo (1 und)</h5>
+                <h6>R$ 15,00</h6>               
             </div>
-            <div id="precoUnidade">
-                <span>Valor Mínimo para uma Unidade R$:</span>                
+            <div id="menorPrecoGlobal" class="bg-bege-claro-padrao">
+                <h5 class="bg-bege-claro-alt">Valor min Geral</h5>
+                <h6>R$ 8,00</h6>           
             </div>
 
         </div>
         
-        <div class="acoes">
-            <input type="text" class="pesquisa" placeholder="Procurar orçamento">
-            <input type="button" value="Novo" id="botaoNovoOrcamento">  
+        <div class="botoes bg-bege-claro-padrao">
+            <input type="text" class="pesquisa bg-bege-claro-padrao" placeholder="Procurar orçamento">
+            <input type="button" value="Novo" id="botaoNovoOrcamento" class="botao-h4 bg-bege-padrao">  
         </div>        
 
-        <ul class="recentes">
-            
-        </ul>
+        <section class="lista bg-bege-claro-padrao">
+
+            <ul class="recentes">            
+            </ul>
+
+            <h6 class="load-more">Carregar mais</h6>
+
+        </section>
+
         
+            
     </main>
     
-    <footer> Leo de Vanda produções &copy;</footer>
+    <footer class="bg-bege-claro-padrao">
+        <h5>Leo de Vanda produções &copy;</h5>
+    </footer>
 
 
     <dialog id="novoOrcamento">
