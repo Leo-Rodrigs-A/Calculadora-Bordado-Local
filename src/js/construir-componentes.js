@@ -1,9 +1,12 @@
 export function construirComponente(listaOrcamentos, montarLista){
 
-listaOrcamentos.forEach(bordado => {
+listaOrcamentos.forEach((bordado, index) => {
+
+
 
   const novoBordado = document.createElement('li');
   novoBordado.className = 'novoBordado';
+  novoBordado.id = bordado.id
 
   const headBordado = document.createElement('section')
   headBordado.className = 'headBordado';
@@ -68,37 +71,42 @@ listaOrcamentos.forEach(bordado => {
 
   const spanValor = document.createElement('span');
   spanValor.className = 'spanValor';
+  spanValor.textContent = 'Valor para uma Unidade: ';
   
   const valorPraUm = document.createElement('span');
   valorPraUm.className = 'valorPraUm';
-
-
-
-
-
-  
-  
-  
-
-  spanLabel.textContent = 'Valor para uma Unidade: ';
-  spanValor.textContent = Number(bordado.valores[0]).toLocaleString('PT-BR', {
+  valorPraUm.textContent = Number(bordado.valores[0]).toLocaleString('PT-BR', {
     style: 'currency',
     currency: 'BRL'
   })
-  
-  valorPraUm.appendChild(spanLabel);
-  valorPraUm.appendChild(spanValor);
 
-  novoBordado.appendChild(titulo);
-  novoBordado.appendChild(data);
-  novoBordado.appendChild(pontos);
-  novoBordado.appendChild(valorPraUm);
+
+  headBordado.appendChild(nomeBordado);
+  headBordado.appendChild(editIcon);
+
+  boxData.appendChild(spanData);
+  boxData.appendChild(dataCriacao);
+
+  boxPontos.appendChild(spanPontos);
+  boxPontos.appendChild(qtdPontos);
+
+  boxValorUnd.appendChild(spanValor);
+  boxValorUnd.appendChild(valorPraUm);
+
+  bodyBordado.appendChild(boxData);
+  bodyBordado.appendChild(divLine1);
+  bodyBordado.appendChild(boxPontos);
+  bodyBordado.appendChild(divLine2);
+  bodyBordado.appendChild(boxValorUnd);  
+
+  novoBordado.appendChild(headBordado);
+  novoBordado.appendChild(bodyBordado);
 
   montarLista.appendChild(novoBordado);  
 });
 
 const loadMore = document.createElement('p')
-loadMore.classList.add('carregarMais')
+loadMore.className = 'carregarMais'
 loadMore.textContent = 'carregar mais...'
 montarLista.appendChild(loadMore);
 
