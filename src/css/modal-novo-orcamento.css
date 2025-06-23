@@ -1,0 +1,39 @@
+#modalNovoOrcamento{
+    padding: 0px;
+}
+
+.headerModal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 36px;
+    gap: 12px;
+}
+
+.bodyModal{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 36px;
+}
+
+.nomeMatriz{
+    display: flex;
+    flex-direction: column;
+}
+
+.quantidades{
+    display: flex;
+    gap: 12px;
+}
+
+.qtdPontos{
+    display: flex;
+    flex-direction: column;
+}
+
+.qtdBordados{
+    display: flex;
+    flex-direction: column;
+}

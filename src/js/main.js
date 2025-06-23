@@ -12,7 +12,12 @@ if (localStorage.getItem('orcamentos')){
   listaOrcamentos = listaBase;
 }
 
-
+const botaoNovoOrcamento = document.querySelector('#botaoNovoOrcamento');
+botaoNovoOrcamento.addEventListener('click', () => {
+  const modalId = botaoNovoOrcamento.getAttribute('data-modal');
+  const modal = document.getElementById(modalId);
+  modal.showModal();
+})
 
 construirComponente(listaOrcamentos, montarLista);
 

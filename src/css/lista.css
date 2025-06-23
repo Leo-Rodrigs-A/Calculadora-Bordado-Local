@@ -60,7 +60,7 @@
     padding: 16px 16px 0px 16px;
 }
 
-.container .novoBordado .divLine{
+.divLine{
     border: none;
     background-color: var(--marrom-leve);
     height: 1px;

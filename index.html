@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/color.css">
     <link rel="stylesheet" href="./src/css/lista.css">
+    <link rel="stylesheet" href="./src/css/modal-novo-orcamento.css">
 
 </head>
 <body>
@@ -48,7 +49,7 @@
         
         <div class="botoes bg-bege-claro-padrao">
             <input type="text" class="pesquisa bg-bege-claro-padrao" placeholder="Procurar orçamento">
-            <input type="button" value="Novo" id="botaoNovoOrcamento" class="botao-h4 bg-bege-padrao">  
+            <input type="button" value="Novo" id="botaoNovoOrcamento" data-modal="modalNovoOrcamento" class="botao-h4 bg-bege-padrao">  
         </div>        
 
         <section class="lista bg-bege-claro-padrao">
@@ -69,20 +70,41 @@
     </footer>
 
 
-    <dialog id="novoOrcamento">
-        <form method="dialog">
-            <section class="formulario">
-                <h2>Novo Orcamento</h2>
+    <dialog id="modalNovoOrcamento" class="modalNovoOrcamento bg-bege-padrao">
+        <form method="dialog">            
 
-                <label for="nomeMatriz">Nome da Matriz:</label>
-                <input type="text" id="nomeMatriz" required>
+            <div class="headerModal bg-bege-escuro-padrao">
+                <h3>Novo Orcamento</h3>
+                <input type="button" value="x">  
+            </div>                
+            <div class="bodyModal">
+                <div class="nomeMatriz">
+                    <label for="nomeMatriz">Nome da Matriz:</label>
+                    <input type="text" id="nomeMatriz" required>  
+                </div>
+                    
+                <div class="quantidades">
 
-                <label for="qtdPontos">Quantidade de pontos do bordado:</label>
-                <input type="number" id="qtdPontos" required>
+                    <div class="qtdPontos">
+                        <label for="qtdPontos">Qtd. Pontos</label>
+                        <input type="number" id="qtdPontos" required>
+                    </div>
+                        
+                    <div class="qtdBordados">
+                        <label for="qtdBordados">Quantidade Bordados</label>
+                        <input type="number" id="qtdBordados" required>
+                    </div>          
+                        
+                </div>
 
-                <input type="button" value="Calcular">
-            </section>
-            <button id="salvarOrcamento" type="submit"></button>
+                <hr class="divLine">
+                    
+                <button>Calcular valores</button>
+                <button id="salvarOrcamento" type="submit">salvarOrcamento</button>
+            
+            </div>    
+                
+
         </form>
     </dialog>
 
