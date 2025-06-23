@@ -29,15 +29,17 @@ header img{
     flex-direction: column;
     max-width: 1280px;
     gap: 24px;
+    border-radius: 24px;
     box-sizing: border-box;
     justify-content: center;
 }
 
 .container .variaveis{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 16px;
     font-weight: 700;
     border-radius: 24px;
 }
@@ -45,10 +47,11 @@ header img{
 .container .variaveis div{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 8px;
     text-align: center;
     border-radius: 24px;
-    padding: 12px 48px; 
+    padding: 12px 0px; 
 }
 
 

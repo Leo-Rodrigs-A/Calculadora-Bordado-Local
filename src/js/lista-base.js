@@ -7,7 +7,8 @@ export let listaOrcamentos = [
         temMatriz: true,
         urgencia: false,
         materialDoCliente: false,
-        valores: ["8","8","8","8","8","8","8","8"]
+        valores: ["8","8","8","8","8","8","8","8"],
+        orcamento: "8"
     },
     {
         id: "2",
@@ -17,7 +18,8 @@ export let listaOrcamentos = [
         temMatriz: true,
         urgencia: false,
         materialDoCliente: false,
-        valores: ["31","25","22","20","19","17","14","13"]
+        valores: ["31","25","22","20","19","17","14","13"],
+        orcamento: "31"
     },
     {
         id: "3",
@@ -27,7 +29,8 @@ export let listaOrcamentos = [
         temMatriz: true,
         urgencia: false,
         materialDoCliente: false,
-        valores: ["15","12","11","10","9","9","8","8"]
+        valores: ["15","12","11","10","9","9","8","8"],
+        orcamento: "15",
     },
     {
         id: "4",
@@ -37,7 +40,8 @@ export let listaOrcamentos = [
         temMatriz: true,
         urgencia: false,
         materialDoCliente: false,
-        valores: ["15","12","11","10","9","9","8","8"]
+        valores: ["15","12","11","10","9","9","8","8"],
+        orcamento: "15",
     },
     {
         id: "5",
@@ -47,7 +51,8 @@ export let listaOrcamentos = [
         temMatriz: true,
         urgencia: false,
         materialDoCliente: false,
-        valores: ["15","12","11","10","9","9","8","8"]
+        valores: ["15","12","11","10","9","9","8","8"],
+        orcamento: "15",
     },
     {
         id: "6",
@@ -57,7 +62,8 @@ export let listaOrcamentos = [
         temMatriz: true,
         urgencia: false,
         materialDoCliente: false,
-        valores: ["16","13","12","11","10","9","8","8"]
+        valores: ["16","13","12","11","10","9","8","8"],
+        orcamento: "15",
     },
     {
         id: "7",
@@ -67,7 +73,8 @@ export let listaOrcamentos = [
         temMatriz: true,
         urgencia: false,
         materialDoCliente: false,
-        valores: ["15","12","11","10","9","9","8","8"]
+        valores: ["15","12","11","10","9","9","8","8"],
+        orcamento: "15",
     },
     {
         id: "8",
@@ -77,7 +84,8 @@ export let listaOrcamentos = [
         temMatriz: true,
         urgencia: false,
         materialDoCliente: false,
-        valores: ["15","12","11","10","9","9","8","8"]
+        valores: ["15","12","11","10","9","9","8","8"],
+        orcamento: "15",
     },
     {
         id: "9",
@@ -87,7 +95,8 @@ export let listaOrcamentos = [
         temMatriz: true,
         urgencia: false,
         materialDoCliente: false,
-        valores: ["15","12","11","10","9","9","8","8"]
+        valores: ["15","12","11","10","9","9","8","8"],
+        orcamento: "15",
     },
     {
         id: "10",
@@ -97,7 +106,8 @@ export let listaOrcamentos = [
         temMatriz: true,
         urgencia: false,
         materialDoCliente: false,
-        valores: ["31","25","22","21","19","18","14","13"]
+        valores: ["31","25","22","21","19","18","14","13"],
+        orcamento: "31",
     },
     {
         id: "11",
@@ -107,7 +117,8 @@ export let listaOrcamentos = [
         temMatriz: true,
         urgencia: false,
         materialDoCliente: false,
-        valores: ["15","12","11","10","9","9","8","8"]
+        valores: ["15","12","11","10","9","9","8","8"],
+        orcamento: "15",
     },
     {
         id: "12",
@@ -117,7 +128,8 @@ export let listaOrcamentos = [
         temMatriz: true,
         urgencia: false,
         materialDoCliente: false,
-        valores: ["21","17","15","14","13","12","10","9"]
+        valores: ["21","17","15","14","13","12","10","9"],
+        orcamento: "21",
     },
 
 ]

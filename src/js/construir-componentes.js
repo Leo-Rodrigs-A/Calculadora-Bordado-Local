@@ -75,11 +75,11 @@ listaOrcamentos.forEach((bordado, index) => {
 
   const spanValor = document.createElement('span');
   spanValor.className = 'spanValor';
-  spanValor.textContent = 'Valor para uma Unidade: ';
+  spanValor.textContent = 'Valor Unitário:';
   
   const valorPraUm = document.createElement('span');
   valorPraUm.className = 'valorPraUm bold';
-  valorPraUm.textContent = Number(bordado.valores[0]).toLocaleString('PT-BR', {
+  valorPraUm.textContent = Number(bordado.orcamento).toLocaleString('PT-BR', {
     style: 'currency',
     currency: 'BRL'
   })
