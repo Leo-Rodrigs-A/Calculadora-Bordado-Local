@@ -10,7 +10,8 @@
 
 .container .recentes{    
     display: grid;
-    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns:repeat(auto-fit, minmax(280px, 0.25fr));
+    justify-content: flex-start;
     gap: 24px;
     list-style-type: none;
 }

@@ -1,8 +1,8 @@
-export function construirComponente(listaOrcamentos, montarLista){
+export function construirComponente(listaFiltrada, montarLista){
 
-listaOrcamentos.forEach((bordado, index) => {
+montarLista.innerHTML = '';
 
-
+listaFiltrada.forEach((bordado) => {
 
   const novoBordado = document.createElement('li');
   novoBordado.className = 'novoBordado';
