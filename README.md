@@ -6,8 +6,21 @@
 
 
 
-This project is a web-based calculator designed to manage embroidery quotes in a practical, fast, and organized way. It was built to solve real-world needs within a clothing production environment and also served as a hands-on learning exercise in programming and web development.
+This project is a web-based embroidery quotes calculator designed to manage embroidery quotes in a practical, fast, and organized way. It was built to solve a personal need within a clothing production environment and also served as a hands-on learning exercise in programming and web development.
 
+## How to use it
+
+- just type (bit.ly/bordcalc) for quickly access the website
+- it saves data into the localStorage, no database use here.
+- the firt time it runs into your browser, loads a base list of quotes where you can start from
+- hit the novo button to calculate a new quote based on how many shirts you will do embroidery work, plus how many embroidery stiches that specific embroidery has.
+- you can now save this quote or discard it
+- if you save it, it will appear at the top of the quotes list.
+- you can search for quote into your list by just typing the quotes tittle at the search bar
+- you can click a quote to see more details
+- you can recalculate an already saved quotes price
+- you can delete a quote from the list
+ 
 ---
 
 ## 🚀 Features
@@ -17,7 +30,6 @@ This project is a web-based calculator designed to manage embroidery quotes in a
 - 🗃️ Displays the 12 most recent quotes
 - ➕ "Load more" button to display additional quotes
 - 💾 Data stored in `localStorage` (no backend yet)
-- 🔄 Reuse company data if it already exists
 
 ---
 
@@ -45,8 +57,9 @@ This project helped me learn and apply the following concepts:
 
 - Divided code logic into multiple `.js` files to follow clean code practices
 - Used IDs and creation dates to sort and manage quotes
-- Loaded initial data only if `localStorage` was empty
+- Loaded initial base data only if `localStorage` was empty
 - Implemented **"Load more"** button for improved user experience
+- user can edit **variable** values, like the base value for just 1 shirt, to make quotes more accurated
 
 ---
 
