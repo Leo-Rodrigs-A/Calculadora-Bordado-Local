@@ -10,7 +10,7 @@ This project is a web-based embroidery quotes calculator designed to manage embr
 
 ## How to use it
 
-- just click here [bit.ly/bordcalc] for quickly access the website
+- [just click here](bit.ly/bordcalc) for quickly access the website
 - it saves data into the localStorage, no database use here.
 - the firt time it runs into your browser, loads a base list of quotes where you can start from
 - hit the novo button to calculate a new quote based on how many shirts you will do embroidery work, plus how many embroidery stiches that specific embroidery has.
