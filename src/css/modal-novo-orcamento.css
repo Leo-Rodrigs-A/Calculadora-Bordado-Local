@@ -1,39 +1,97 @@
 #modalNovoOrcamento{
+    outline: none;
+    border: none;
     padding: 0px;
+    box-sizing: border-box;
+    width: 600px;
 }
 
-.headerModal{
-    display: flex;
+#modalNovoOrcamento .headerModal{
+    display: flex;    
     justify-content: space-between;
     align-items: center;
-    padding: 0px 36px;
-    gap: 12px;
+    padding: 12px 12px;
 }
 
-.bodyModal{
+#modalNovoOrcamento .fechar-modal{
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.fa-solid.fa-xmark{
+    font-size: 32px;
+}
+
+#modalNovoOrcamento .bodyModal{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 12px;
-    padding: 12px 36px;
+    padding: 24px 12px;
 }
 
-.nomeMatriz{
+#modalNovoOrcamento .nomeMatriz{
     display: flex;
     flex-direction: column;
 }
 
-.quantidades{
+#modalNovoOrcamento .quantidades{
     display: flex;
+    justify-content: space-between;
     gap: 12px;
 }
 
-.qtdPontos{
+#modalNovoOrcamento .qtdPontos{
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.qtdBordados{
+#modalNovoOrcamento input{
+    border-radius: 4px;
+    padding-left: 8px;
+    padding-block: 4px;
+    color: var(--bege-escuro);
+    background: none;
+    border-color: var(--bege-escuro);
+    border: solid;
+    border-width: 2px;
+}
+
+#modalNovoOrcamento input:focus{
+    outline: none;
+}
+
+#modalNovoOrcamento .qtdBordados{
+    width: 100%;
     display: flex;
     flex-direction: column;
+}
+
+#modalNovoOrcamento .variable-group{    
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+#modalNovoOrcamento .urgente,
+#modalNovoOrcamento .matriz-field,
+#modalNovoOrcamento .mat-cliente{
+    padding: 12px 0px;
+}
+
+#modalNovoOrcamento #calcular{
+    width: fit-content;
+    padding: 12px;
+    border: solid;
+    border-width: 3px;
+    border-radius: 8px;
+    font-weight: 700;
+    align-self: center;
+}
+
+#modalNovoOrcamento #salvarOrcamento{
+    display: none;
 }

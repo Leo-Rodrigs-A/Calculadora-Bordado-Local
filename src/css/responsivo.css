@@ -1,0 +1,45 @@
+@media (max-width: 480px) {
+    body{
+        min-width: 330px;
+        gap: 12px;
+    }
+    header{
+        display: flex;
+        padding: 8px 14px;
+        justify-content: space-between;
+    }  
+    header img{
+        height: 48px;
+    }
+
+    .edit-variaveis{
+        display: flex;
+        object-fit: scale-down;
+        border-radius: 8px;
+        padding: 4px 4px;
+    }
+
+    .container .variaveis{
+        display: none;
+    }
+
+    .container{
+        gap:12px;
+    }
+
+    .container .botoes{
+        padding: 12px;
+    }
+
+    .container .botoes #botaoNovoOrcamento{
+    padding: 12px 12px;
+    }
+
+    .container .recentes{
+       grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); 
+    }
+    
+    .container .lista{
+        padding: 16px;
+    }
+}
