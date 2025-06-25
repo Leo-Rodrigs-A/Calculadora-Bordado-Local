@@ -6,6 +6,8 @@ const inputPesquisa = document.querySelector('.pesquisa');
 const mostrarMais = document.querySelector('.loadMore');
 
 let limiteAtual = 12;
+
+
 atualizarLista({
   pesquisa: '',
   limiteLista: limiteAtual,
@@ -13,6 +15,7 @@ atualizarLista({
 });
 
 
+// input de pesquisa
 inputPesquisa.addEventListener('input' , () => {
 
   atualizarLista({
@@ -24,7 +27,7 @@ inputPesquisa.addEventListener('input' , () => {
 });
 
 
-
+// botao novo orcamento
 const botaoNovoOrcamento = document.querySelector('#botaoNovoOrcamento');
 botaoNovoOrcamento.addEventListener('click', () => {
   const modalId = botaoNovoOrcamento.getAttribute('data-modal');
