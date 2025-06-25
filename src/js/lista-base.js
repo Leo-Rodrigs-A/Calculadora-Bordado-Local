@@ -1,4 +1,4 @@
-export let listaOrcamentos = [
+export const listaOrcamentos = [
     {
         id: "1",
         dataCriacao: "2025-06-12",

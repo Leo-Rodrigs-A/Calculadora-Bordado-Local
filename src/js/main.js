@@ -1,17 +1,33 @@
-import { listaOrcamentos as listaBase } from "./lista-base.js";
-import {construirComponente} from "./construir-componentes.js";
-
-let listaOrcamentos;
-let montarLista = document.querySelector(".recentes")
+import { atualizarLista } from "./atualizar-lista.js";
 
 
-if (localStorage.getItem('orcamentos')){
-  listaOrcamentos = JSON.parse(localStorage.getItem('orcamentos'))
-} else {
-  localStorage.setItem('orcamentos', JSON.stringify(listaBase));
-  listaOrcamentos = listaBase;
-}
+const montarLista = document.querySelector(".recentes");
+const inputPesquisa = document.querySelector('.pesquisa');
+const mostrarMais = document.querySelector('.loadMore');
 
+let limiteAtual = 12;
+
+
+atualizarLista({
+  pesquisa: '',
+  limiteLista: limiteAtual,
+  container: montarLista
+});
+
+
+// input de pesquisa
+inputPesquisa.addEventListener('input' , () => {
+
+  atualizarLista({
+    pesquisa: inputPesquisa.value, 
+    limiteLista: limiteAtual, 
+    container: montarLista 
+  });
+  
+});
+
+
+// botao novo orcamento
 const botaoNovoOrcamento = document.querySelector('#botaoNovoOrcamento');
 botaoNovoOrcamento.addEventListener('click', () => {
   const modalId = botaoNovoOrcamento.getAttribute('data-modal');
@@ -19,6 +35,6 @@ botaoNovoOrcamento.addEventListener('click', () => {
   modal.showModal();
 })
 
-construirComponente(listaOrcamentos, montarLista);
+
 
  
