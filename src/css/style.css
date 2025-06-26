@@ -71,7 +71,7 @@ header img{
     border-radius: 24px;
     border-width: 2px;
     background: url('../img/lupa.svg') no-repeat 8px;
-    padding: 12px 0px 12px 32px;
+    padding: 12px 0px 12px 40px;
 }
 
 input::placeholder{

@@ -106,12 +106,13 @@
     top: 3px;
     width: 18px;
     height: 18px;
-    background-color: var(--bege);
+    background-color: var(--bege-claro);
     transition: left 0.3s;
 }
 
 #modalNovoOrcamento #calcular{
     width: fit-content;
+    background: none;
     padding: 8px 12px;
     border: solid;
     border-width: 2px;
