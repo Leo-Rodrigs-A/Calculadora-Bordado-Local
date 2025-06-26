@@ -1,6 +1,6 @@
-export function construirComponente(listaFiltrada, montarLista){
+export function construirComponente(listaFiltrada, container){
 
-montarLista.innerHTML = '';
+container.innerHTML = '';
 
 listaFiltrada.forEach((bordado) => {
 
@@ -106,8 +106,8 @@ listaFiltrada.forEach((bordado) => {
   novoBordado.appendChild(headBordado);
   novoBordado.appendChild(bodyBordado);
 
-  montarLista.appendChild(novoBordado);  
+  container.appendChild(novoBordado);  
 });
 
-return montarLista;
+return container;
 }

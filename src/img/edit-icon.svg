@@ -1,3 +1,19 @@
-<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M2 16H3.425L13.2 6.225L11.775 4.8L2 14.575V16ZM0 18V13.75L13.2 0.575C13.4 0.391667 13.6208 0.25 13.8625 0.15C14.1042 0.05 14.3583 0 14.625 0C14.8917 0 15.15 0.05 15.4 0.15C15.65 0.25 15.8667 0.4 16.05 0.6L17.425 2C17.625 2.18333 17.7708 2.4 17.8625 2.65C17.9542 2.9 18 3.15 18 3.4C18 3.66667 17.9542 3.92083 17.8625 4.1625C17.7708 4.40417 17.625 4.625 17.425 4.825L4.25 18H0ZM12.475 5.525L11.775 4.8L13.2 6.225L12.475 5.525Z" fill="#C98949"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="4.7626mm" height="4.7626mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 115.56 115.56"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:#4798EE;fill-rule:nonzero}
+   ]]>
+  </style>
+ </defs>
+ <g id="Camada_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path class="fil0" d="M12.84 102.72l9.15 0 62.75 -62.75 -9.15 -9.15 -62.75 62.75 0 9.15zm-12.84 12.84l0 -27.28 84.74 -84.58c1.28,-1.18 2.7,-2.09 4.25,-2.73 1.55,-0.64 3.18,-0.96 4.9,-0.96 1.71,0 3.37,0.32 4.97,0.96 1.61,0.64 3,1.61 4.17,2.89l8.83 8.99c1.28,1.18 2.22,2.57 2.81,4.17 0.59,1.6 0.88,3.21 0.88,4.81 0,1.71 -0.3,3.34 -0.88,4.9 -0.59,1.55 -1.53,2.97 -2.81,4.25l-84.58 84.58 -27.28 0zm80.09 -80.09l-4.49 -4.66 9.15 9.15 -4.66 -4.49z"/>
+ </g>
 </svg>
