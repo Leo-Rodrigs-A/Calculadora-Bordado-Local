@@ -1,4 +1,4 @@
-import {construirComponente} from "./construir-componentes.js";
+import {construirComponente} from "./dom-builder/construir-componentes.js";
 import { buscarOrcamentos } from "./orcamento-service.js";
 
 function formatString(texto) {

@@ -1,6 +1,7 @@
 #modalNovoOrcamento{
     outline: none;
     border: none;
+    border-radius: 24px;
     padding: 0px;
     box-sizing: border-box;
     width: 600px;
@@ -18,6 +19,10 @@
     border: none;
     font-size: 24px;
     cursor: pointer;
+}
+
+#modalNovoOrcamento .fechar-modal:focus{
+    outline: none;
 }
 
 .fa-solid.fa-xmark{
@@ -72,26 +77,55 @@
 
 #modalNovoOrcamento .variable-group{    
     display: flex;
-    justify-content: space-between;
-    gap: 12px;
+    flex-direction: column;
+    gap: 4px;
 }
 
 #modalNovoOrcamento .urgente,
 #modalNovoOrcamento .matriz-field,
 #modalNovoOrcamento .mat-cliente{
     padding: 12px 0px;
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+}
+
+#modalNovoOrcamento .toggle{
+    width: 48px;
+    height: 24px;
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+}
+
+#modalNovoOrcamento .toggle::after{
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    left: 3px;
+    top: 3px;
+    width: 18px;
+    height: 18px;
+    background-color: var(--bege);
+    transition: left 0.3s;
 }
 
 #modalNovoOrcamento #calcular{
     width: fit-content;
-    padding: 12px;
+    padding: 8px 12px;
     border: solid;
-    border-width: 3px;
+    border-width: 2px;
     border-radius: 8px;
     font-weight: 700;
     align-self: center;
 }
+#modalNovoOrcamento #calcular:focus{
+    outline: solid;
+    outline-width: 2px;
+    outline-color: var(--marrom);
+}   
 
 #modalNovoOrcamento #salvarOrcamento{
     display: none;
 }
+
