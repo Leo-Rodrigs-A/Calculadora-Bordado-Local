@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Creator: CorelDRAW -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="4.7626mm" height="4.7626mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-viewBox="0 0 115.56 115.56"
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="4.7622mm" height="4.7622mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 476.18 476.18"
  xmlns:xlink="http://www.w3.org/1999/xlink"
  xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
  <defs>
   <style type="text/css">
    <![CDATA[
-    .fil0 {fill:#4798EE;fill-rule:nonzero}
+    .fil0 {fill:#C76A10;fill-rule:nonzero}
    ]]>
   </style>
  </defs>
  <g id="Camada_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
-  <path class="fil0" d="M12.84 102.72l9.15 0 62.75 -62.75 -9.15 -9.15 -62.75 62.75 0 9.15zm-12.84 12.84l0 -27.28 84.74 -84.58c1.28,-1.18 2.7,-2.09 4.25,-2.73 1.55,-0.64 3.18,-0.96 4.9,-0.96 1.71,0 3.37,0.32 4.97,0.96 1.61,0.64 3,1.61 4.17,2.89l8.83 8.99c1.28,1.18 2.22,2.57 2.81,4.17 0.59,1.6 0.88,3.21 0.88,4.81 0,1.71 -0.3,3.34 -0.88,4.9 -0.59,1.55 -1.53,2.97 -2.81,4.25l-84.58 84.58 -27.28 0zm80.09 -80.09l-4.49 -4.66 9.15 9.15 -4.66 -4.49z"/>
+  <path class="fil0" d="M52.92 423.26l37.71 0 258.59 -258.59 -37.71 -37.71 -258.59 258.59 0 37.71zm-52.92 52.92l0 -112.42 349.21 -348.55c5.28,-4.86 11.13,-8.61 17.52,-11.25 6.39,-2.64 13.11,-3.96 20.19,-3.96 7.05,0 13.89,1.32 20.48,3.96 6.64,2.64 12.36,6.64 17.19,11.91l36.39 37.05c5.28,4.86 9.15,10.59 11.58,17.19 2.43,6.59 3.63,13.23 3.63,19.82 0,7.05 -1.24,13.77 -3.63,20.19 -2.43,6.39 -6.31,12.24 -11.58,17.52l-348.55 348.55 -112.42 0zm330.05 -330.05l-18.5 -19.21 37.71 37.71 -19.21 -18.5z"/>
  </g>
 </svg>

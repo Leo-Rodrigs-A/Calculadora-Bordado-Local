@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Creator: CorelDRAW -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="5.426mm" height="5.3658mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-viewBox="0 0 69.21 68.44"
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="5.4261mm" height="5.3657mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 542.6 536.56"
  xmlns:xlink="http://www.w3.org/1999/xlink"
  xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
  <defs>
   <style type="text/css">
    <![CDATA[
-    .fil0 {fill:#3174BA;fill-rule:nonzero}
+    .fil0 {fill:#C76A10;fill-rule:nonzero}
    ]]>
   </style>
  </defs>
  <g id="Camada_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
   <g id="_2173485395120">
-   <path class="fil0" d="M28.08 54.27c14.46,0 26.21,-11.73 26.21,-26.21 0,-7.24 -2.93,-13.79 -7.67,-18.54 -4.75,-4.75 -11.29,-7.67 -18.54,-7.67 -7.24,0 -13.79,2.93 -18.54,7.67 -4.75,4.75 -7.67,11.29 -7.67,18.54 0,7.24 2.93,13.79 7.67,18.54 4.75,4.75 11.29,7.67 18.54,7.67zm20.84 -7.43l20.29 20.29 -1.32 1.32 -20.26 -20.26c-5.06,4.92 -11.94,7.94 -19.57,7.94 -7.75,0 -14.77,-3.14 -19.83,-8.23 -5.08,-5.08 -8.23,-12.09 -8.23,-19.83 0,-7.75 3.14,-14.77 8.23,-19.83 5.08,-5.08 12.09,-8.23 19.83,-8.23 7.75,0 14.77,3.14 19.83,8.23 5.08,5.08 8.23,12.09 8.23,19.83 0,7.22 -2.73,13.81 -7.22,18.78l0.02 0z"/>
+   <path class="fil0" d="M220.15 425.39c113.37,0 205.48,-91.96 205.48,-205.48 0,-56.76 -22.97,-108.11 -60.13,-145.35 -37.24,-37.24 -88.51,-60.13 -145.35,-60.13 -56.76,0 -108.11,22.97 -145.35,60.13 -37.24,37.24 -60.13,88.51 -60.13,145.35 0,56.76 22.97,108.11 60.13,145.35 37.24,37.24 88.51,60.13 145.35,60.13zm163.39 -58.25l159.07 159.07 -10.35 10.35 -158.84 -158.84c-39.67,38.57 -93.61,62.25 -153.43,62.25 -60.76,0 -115.8,-24.62 -155.47,-64.52 -39.83,-39.83 -64.52,-94.78 -64.52,-155.47 0,-60.76 24.62,-115.8 64.52,-155.47 39.83,-39.83 94.78,-64.52 155.47,-64.52 60.76,0 115.8,24.62 155.47,64.52 39.83,39.83 64.52,94.78 64.52,155.47 0,56.6 -21.4,108.27 -56.6,147.23l0.16 0 0 -0.07z"/>
   </g>
  </g>
 </svg>

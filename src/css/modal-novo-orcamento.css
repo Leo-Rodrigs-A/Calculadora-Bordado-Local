@@ -4,7 +4,7 @@
     border-radius: 24px;
     padding: 0px;
     box-sizing: border-box;
-    width: 600px;
+    width: 520px;
 }
 
 #modalNovoOrcamento .headerModal{
@@ -62,7 +62,7 @@
     background: none;
     border-color: var(--marrom-leve);
     border: solid;
-    border-width: 2px;
+    border-width: 1px;
 }
 
 #modalNovoOrcamento input:focus{
@@ -91,7 +91,7 @@
 }
 
 #modalNovoOrcamento .toggle{
-    width: 48px;
+    width: 42px;
     height: 24px;
     border-radius: 12px;
     position: relative;
