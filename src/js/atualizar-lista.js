@@ -1,4 +1,4 @@
-import {construirComponente} from "./dom-builder/construir-componentes.js";
+import {construirLista} from "./dom-builder/construir-lista.js";
 import { buscarOrcamentos } from "./orcamento-service.js";
 
 function formatString(texto) {
@@ -22,5 +22,5 @@ export function atualizarLista ({pesquisa = '', limiteLista = 12, container}) {
     .sort((a, b) => new Date(b.dataCriacao) - new Date(a.dataCriacao))
     .slice(0, limiteLista);
 
-    construirComponente(listaFiltrada, container);
+    construirLista(listaFiltrada, container, limiteLista);
 }
