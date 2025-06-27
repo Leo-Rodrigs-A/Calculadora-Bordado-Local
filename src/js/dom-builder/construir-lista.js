@@ -1,6 +1,7 @@
-export function construirComponente(listaFiltrada, container){
+export function construirLista(listaFiltrada, container, limiteLista){
 
 container.innerHTML = '';
+
 
 listaFiltrada.forEach((bordado) => {
 
@@ -108,6 +109,19 @@ listaFiltrada.forEach((bordado) => {
 
   container.appendChild(novoBordado);  
 });
+
+if (listaFiltrada.length === 0){
+  const noResults = document.createElement('h6');
+  noResults.className = 'no-results';
+  noResults.textContent = 'Nenhum Resultado Encontrado';
+  container.appendChild(noResults);
+}else if(listaFiltrada.length < limiteLista){
+  const loadMore = document.createElement('h6');
+  loadMore.className = 'loadMore';
+  loadMore.textContent = 'Carregar Mais';
+  container.appendChild(loadMore);
+}
+
 
 return container;
 }
