@@ -37,8 +37,9 @@ export function atualizarLista ({pesquisa = '', limiteLista = 12, container}) {
       return
     }
 
-    if (listaSortida > listaSliced){
-      const carregarMais = document.querySelector('.loadMore');
+    const carregarMais = document.querySelector('.loadMore');
+
+    if (listaSortida.length > listaSliced.length && carregarMais){      
       carregarMais.style.display = 'block';
     }
 
