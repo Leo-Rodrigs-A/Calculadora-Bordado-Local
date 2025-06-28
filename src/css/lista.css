@@ -1,5 +1,5 @@
 
-.container .lista{
+.container .recentes{
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -8,7 +8,7 @@
     padding: 24px 36px;
 }
 
-.container .recentes{    
+.container .lista-box{    
     display: grid;
     grid-template-columns:repeat(auto-fit, minmax(280px, 0.25fr));
     justify-content: center;

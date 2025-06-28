@@ -1,9 +1,11 @@
-export function construirLista(listaFiltrada, container, limiteLista){
-
-container.innerHTML = '';
+export function construirLista(listaSliced, container){
 
 
-listaFiltrada.forEach((bordado) => {
+const listaBox = document.createElement('ul');
+listaBox.className = 'lista-box';
+
+
+listaSliced.forEach((bordado) => {
 
   const novoBordado = document.createElement('li');
   novoBordado.className = 'novoBordado';
@@ -107,21 +109,10 @@ listaFiltrada.forEach((bordado) => {
   novoBordado.appendChild(headBordado);
   novoBordado.appendChild(bodyBordado);
 
-  container.appendChild(novoBordado);  
+  listaBox.appendChild(novoBordado);  
 });
 
-if (listaFiltrada.length === 0){
-  const noResults = document.createElement('h6');
-  noResults.className = 'no-results';
-  noResults.textContent = 'Nenhum Resultado Encontrado';
-  container.appendChild(noResults);
-}else if(listaFiltrada.length < limiteLista){
-  const loadMore = document.createElement('h6');
-  loadMore.className = 'loadMore';
-  loadMore.textContent = 'Carregar Mais';
-  container.appendChild(loadMore);
-}
-
+container.appendChild(listaBox);
 
 return container;
 }

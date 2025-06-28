@@ -19,8 +19,28 @@ export function atualizarLista ({pesquisa = '', limiteLista = 12, container}) {
 
     let listaFiltrada = listaLocal
     .filter(bordado => regex.test(formatString(bordado.nomeMatriz)))
-    .sort((a, b) => new Date(b.dataCriacao) - new Date(a.dataCriacao))
+    
+
+    let listaSortida = listaFiltrada
+    .sort((a, b) => new Date(b.dataCriacao) - new Date(a.dataCriacao));
+
+    let listaSliced = listaSortida
     .slice(0, limiteLista);
 
-    construirLista(listaFiltrada, container, limiteLista);
+    container.innerHTML = '';
+
+    if (listaFiltrada.length === 0) {
+      const noResults = document.createElement('h6');
+      noResults.className = 'no-results';
+      noResults.textContent = 'Nenhum Resultado Encontrado';
+      container.appendChild(noResults);
+      return
+    }
+
+    if (listaSortida > listaSliced){
+      const carregarMais = document.querySelector('.loadMore');
+      carregarMais.style.display = 'block';
+    }
+
+    construirLista(listaSliced, container);
 }
