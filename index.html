@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/color.css">
     <link rel="stylesheet" href="./src/css/lista.css">
-    <link rel="stylesheet" href="./src/css/modal-novo-orcamento.css">
+    <link rel="stylesheet" href="./src/css/modal-mestre.css">
     <link rel="stylesheet" href="./src/css/responsivo.css">
 
 </head>
@@ -51,12 +51,14 @@
         
         <div class="botoes bg-bege-claro-padrao">
             <input type="text" class="pesquisa bg-bege-claro-padrao" placeholder="Pesquisar orçamento">
-            <input type="button" value="Novo" id="botaoNovoOrcamento" data-modal="modalNovoOrcamento" class="botao-h4 bg-bege-padrao">  
+            <input type="button" value="Novo" id="botaoNovoOrcamento" data-modal="modalMestre" class="botao-h4 bg-bege-padrao">  
         </div>        
 
-        <section class="recentes bg-bege-claro-padrao">
+        <section  class="box-mestre bg-bege-claro-padrao">
 
-            <h6 class="loadMore" style="display: none;">Carregar Mais</h6>           
+            <section class="recentes"></section>
+            
+            <h6 class="loadMore" style="display: none;">Carregar Mais</h6>
 
         </section>
 
@@ -69,12 +71,12 @@
     </footer>
 
 
-    <dialog id="modalNovoOrcamento" class="modalNovoOrcamento bg-bege-claro-padrao">
+    <dialog id="modalMestre" class="modalMestre bg-bege-claro-padrao">
         <form method="dialog">            
 
             <div class="headerModal bg-bege-escuro-padrao">
                 <h4>Novo Orçamento</h4>
-                <button class="fechar-modal bg-bege-escuro-alt">
+                <button data-modal="modalMestre" class="fechar-modal bg-bege-escuro-padrao">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>                
@@ -103,7 +105,7 @@
 
 
                 <div class="variable-group">
-                    <div class="matriz-field" data-key="">
+                    <div class="matriz-field">
                         <h6>Criar Matriz?</h6>
                         <div class="toggle bg-bege-escuro-padrao"></div>
                     </div>
@@ -135,7 +137,7 @@
         </form>
     </dialog>
 
-    <script type="module" src="./src/js/main.js"></script>
+    <script defer type="module" src="./src/js/main.js"></script>
 
 </body>
 </html>

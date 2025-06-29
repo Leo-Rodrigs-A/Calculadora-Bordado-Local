@@ -37,11 +37,15 @@ export function atualizarLista ({pesquisa = '', limiteLista = 12, container}) {
       return
     }
 
+    
     const carregarMais = document.querySelector('.loadMore');
-
-    if (listaSortida.length > listaSliced.length && carregarMais){      
+    if(carregarMais && listaSortida.length > listaSliced.length){
       carregarMais.style.display = 'block';
+    } else {
+      carregarMais.style.display = 'none';
     }
+    
+
 
     construirLista(listaSliced, container);
 }

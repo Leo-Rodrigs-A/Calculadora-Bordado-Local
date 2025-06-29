@@ -1,4 +1,4 @@
-#modalNovoOrcamento{
+#modalMestre{
     outline: none;
     border: none;
     border-radius: 24px;
@@ -7,21 +7,21 @@
     width: 520px;
 }
 
-#modalNovoOrcamento .headerModal{
+#modalMestre .headerModal{
     display: flex;    
     justify-content: space-between;
     align-items: center;
     padding: 12px 12px;
 }
 
-#modalNovoOrcamento .fechar-modal{
+#modalMestre .fechar-modal{
     background: none;
     border: none;
     font-size: 24px;
     cursor: pointer;
 }
 
-#modalNovoOrcamento .fechar-modal:focus{
+#modalMestre .fechar-modal:focus{
     outline: none;
 }
 
@@ -29,7 +29,7 @@
     font-size: 32px;
 }
 
-#modalNovoOrcamento .bodyModal{
+#modalMestre .bodyModal{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -37,24 +37,24 @@
     padding: 8px 12px 16px 12px;
 }
 
-#modalNovoOrcamento .nomeMatriz{
+#modalMestre .nomeMatriz{
     display: flex;
     flex-direction: column;
 }
 
-#modalNovoOrcamento .quantidades{
+#modalMestre .quantidades{
     display: flex;
     justify-content: space-between;
     gap: 12px;
 }
 
-#modalNovoOrcamento .qtdPontos{
+#modalMestre .qtdPontos{
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-#modalNovoOrcamento input{
+#modalMestre input{
     border-radius: 4px;
     padding-left: 8px;
     padding-block: 4px;
@@ -65,32 +65,32 @@
     border-width: 1px;
 }
 
-#modalNovoOrcamento input:focus{
+#modalMestre input:focus{
     outline: none;
 }
 
-#modalNovoOrcamento .qtdBordados{
+#modalMestre .qtdBordados{
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-#modalNovoOrcamento .variable-group{    
+#modalMestre .variable-group{    
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-#modalNovoOrcamento .urgente,
-#modalNovoOrcamento .matriz-field,
-#modalNovoOrcamento .mat-cliente{
+#modalMestre .urgente,
+#modalMestre .matriz-field,
+#modalMestre .mat-cliente{
     padding: 4px 0px;
     display: flex;
     justify-content: space-between;
     gap: 4px;
 }
 
-#modalNovoOrcamento .toggle{
+#modalMestre .toggle{
     width: 42px;
     height: 24px;
     border-radius: 12px;
@@ -98,7 +98,7 @@
     cursor: pointer;
 }
 
-#modalNovoOrcamento .toggle::after{
+#modalMestre .toggle::after{
     content: '';
     position: absolute;
     border-radius: 50%;
@@ -110,7 +110,7 @@
     transition: left 0.3s;
 }
 
-#modalNovoOrcamento #calcular{
+#modalMestre #calcular{
     width: fit-content;
     background: none;
     padding: 8px 12px;
@@ -120,13 +120,13 @@
     font-weight: 700;
     align-self: flex-end;
 }
-#modalNovoOrcamento #calcular:focus{
+#modalMestre #calcular:focus{
     outline: solid;
     outline-width: 2px;
     outline-color: var(--marrom);
 }   
 
-#modalNovoOrcamento #salvarOrcamento{
+#modalMestre #salvarOrcamento{
     display: none;
 }
 

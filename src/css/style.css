@@ -55,6 +55,10 @@ header img{
     cursor: pointer;
 }
 
+.container .variaveis h5{
+    margin: 4px
+}
+
 
 
 .container .botoes{

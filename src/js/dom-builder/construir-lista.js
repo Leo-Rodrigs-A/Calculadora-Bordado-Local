@@ -4,6 +4,11 @@ export function construirLista(listaSliced, container){
 const listaBox = document.createElement('ul');
 listaBox.className = 'lista-box';
 
+function dataFormat(obj){
+  const [ano, mes, dia] = obj.split('-');
+  return `${dia}/${mes}/${ano}`;
+}
+
 
 listaSliced.forEach((bordado) => {
 
@@ -43,7 +48,7 @@ listaSliced.forEach((bordado) => {
 
   const dataCriacao = document.createElement('span');
   dataCriacao.className = 'dataCriacao bold';
-  dataCriacao.textContent = bordado.dataCriacao;
+  dataCriacao.textContent = dataFormat(bordado.dataCriacao);
 
   
   // linha divisora n1
