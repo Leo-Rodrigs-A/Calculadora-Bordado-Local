@@ -1,14 +1,45 @@
-import { listaOrcamentos as listaBase } from "./lista-base.js";
+const OrcamentoService = {
+  _storageKey: 'orcamentos',
 
-export function buscarOrcamentos () {
-    let listaAtual;
+  _carregar() {
+    const jaTemSalvo = localStorage.getItem(this._storageKey);
+    if (jaTemSalvo) return JSON.parse(jaTemSalvo);
 
-    if (localStorage.getItem('orcamentos')){
-        listaAtual = JSON.parse(localStorage.getItem('orcamentos'))
-    } else {
-        localStorage.setItem('orcamentos', JSON.stringify(listaBase));
-        listaAtual = listaBase;
-    }
+    // Inicializa com a base se não existir
+    this._salvar(listaBase);
+    return listaBase;
+  },
 
-    return listaAtual;
-}
+
+  
+  _salvar(lista) {
+    localStorage.setItem(this._storageKey, JSON.stringify(lista));
+  },
+
+
+
+  buscarOrcamentos() {
+    return this._carregar();
+  },
+
+
+
+  // essa função recebe o objeto montado e joga no local storage
+  adicionar(orcamento) {
+    const lista = this._carregar();
+    lista.unshift(orcamento);
+    this._salvar(lista);
+  },
+
+
+
+  // essa função recebe o id do bordado a ser excluido, cria um novo array sem ele, e salva no local storage;
+  excluir(id) {
+    const lista = this._carregar().filter(item => item.id !== id);
+    this._salvar(lista);
+  }
+
+
+};
+
+export default OrcamentoService;

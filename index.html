@@ -72,69 +72,7 @@
 
 
     <dialog id="modalMestre" class="modalMestre bg-bege-claro-padrao">
-        <form method="dialog">            
-
-            <div class="headerModal bg-bege-escuro-padrao">
-                <h4>Novo Orçamento</h4>
-                <button data-modal="modalMestre" class="fechar-modal bg-bege-escuro-padrao">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>                
-            <div class="bodyModal">
-
-
-                <div class="nomeMatriz bg-bege-claro-padrao">
-                    <h6>Nome da Matriz</h6>
-                    <input type="text" id="nomeMatriz" placeholder="Digite um nome" required>  
-                </div>
-
-                    
-                <div class="quantidades">
-
-                    <div class="qtdPontos">
-                        <h6>Qtd. pontos</h6>
-                        <input type="number" id="qtdPontos" placeholder="Ex: 1468" required>
-                    </div>
-                        
-                    <div class="qtdBordados">
-                        <h6>Qtd. Bordados</h6>
-                        <input type="number" id="qtdBordados" placeholder="Ex: 4" required>
-                    </div>          
-                        
-                </div>
-
-
-                <div class="variable-group">
-                    <div class="matriz-field">
-                        <h6>Criar Matriz?</h6>
-                        <div class="toggle bg-bege-escuro-padrao"></div>
-                    </div>
-
-                    <hr class="divLine">
-
-                    <div class="mat-cliente">
-                        <h6>Material do Cliente?</h6>
-                        <div class="toggle bg-bege-escuro-padrao"></div>
-                    </div>
-
-                    <hr class="divLine">
-
-                    <div class="urgente">
-                        <h6>Urgente?</h6>
-                        <div class="toggle bg-bege-escuro-padrao"></div>
-                    </div>
-
-                    <hr class="divLine">
-
-                </div>
-                    
-                <button id="calcular" class="bg-bege-padrao">Calcular valores</button>
-                <button id="salvarOrcamento" type="submit">Salvar Orcamento</button>
-            
-            </div>    
-                
-
-        </form>
+        
     </dialog>
 
     <script defer type="module" src="./src/js/main.js"></script>

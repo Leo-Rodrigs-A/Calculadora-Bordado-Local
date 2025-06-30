@@ -1,5 +1,5 @@
 import {construirLista} from "./dom-builder/construir-lista.js";
-import { buscarOrcamentos } from "./orcamento-service.js";
+import OrcamentoService from "./orcamento-service.js";
 
 function formatString(texto) {
   return texto
@@ -15,7 +15,7 @@ export function atualizarLista ({pesquisa = '', limiteLista = 12, container}) {
     const txtPesquisa = formatString(pesquisa);
     const regex = new RegExp(`\\b${txtPesquisa}`, 'i');
 
-    let listaLocal = buscarOrcamentos();
+    let listaLocal = OrcamentoService.buscarOrcamentos();
 
     let listaFiltrada = listaLocal
     .filter(bordado => regex.test(formatString(bordado.nomeMatriz)))

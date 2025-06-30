@@ -28,7 +28,7 @@ inputPesquisa.addEventListener('input' , () => {
     pesquisa: inputPesquisa.value, 
     limiteLista: limiteAtual, 
     container: recentes
-  });  
+  }); 
 });
 
 // se o botão carregar mais estiver visivel

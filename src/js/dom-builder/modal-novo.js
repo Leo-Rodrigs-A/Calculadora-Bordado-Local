@@ -90,12 +90,52 @@ export function modalNovo(){
 
 
     //VARIABLE GROUP
+    const grupoVariaveis = document.createElement('div');
+    grupoVariaveis.className = 'variable-group';
+
+    const boxesGrupo = [
+        {classe: 'matriz-field', etiqueta: 'Criar Matriz?'},
+        {classe: 'mat-cliente', etiqueta: 'Material do Cliente?'},
+        {classe: 'urgente', etiqueta: 'Urgente?'}
+    ]
+
+    
+    boxesGrupo.forEach((bloco) => {
+        const blocoBox = document.createElement('div');
+        blocoBox.className = bloco.classe;
+
+        const boxLabel = document.createElement('h6');
+        boxLabel.textContent = bloco.etiqueta;
+
+        const toggle = document.createElement('div');
+        toggle.className = 'toggle bg-bege-escuro-padrao';
+
+        blocoBox.append(boxLabel, toggle);
+        grupoVariaveis.append(blocoBox);
+
+        const divLine = document.createElement('hr');
+        divLine.className = 'divLine';
+
+        grupoVariaveis.append(divLine);
+
+    });
+
+
+    //botões
+    const botaoCalcular = document.createElement('button');
+    botaoCalcular.id = 'calcular';
+    botaoCalcular.className = 'bg-bege-padrao';
+    botaoCalcular.textContent = 'Calcular valores';
+
+    const botaoSalvar = document.createElement('button');
+    botaoSalvar.id = 'salvarOrcamento';
+    botaoSalvar.type = 'submit';
+    botaoSalvar.textContent = 'Salvar Orcamento';
 
 
 
-
-
-    bodyModal.append(nomeMatrizBox, quantidadesBox)
+    // finalizando o modal
+    bodyModal.append(nomeMatrizBox, quantidadesBox, grupoVariaveis, botaoCalcular, botaoSalvar);
 
     form.append(headerModal, bodyModal);
 
