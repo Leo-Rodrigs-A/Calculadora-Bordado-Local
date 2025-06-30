@@ -42,5 +42,11 @@
     .container .lista{
         padding: 16px;
     }
+
+    #modalMestre .quantidades{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
 }
 

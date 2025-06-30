@@ -1,8 +1,10 @@
 import { atualizarLista } from "./atualizar-lista.js";
+import { atualizarVariaveis } from "./atualizar-variaveis.js"; 
 import { modalNovo } from "./dom-builder/modal-novo.js";
 
 
 const recentes = document.querySelector(".recentes");
+const variaveisObjeto = document.querySelector('.variaveis');
 const inputPesquisa = document.querySelector('.pesquisa');
 const botaoNovoOrcamento = document.querySelector('#botaoNovoOrcamento');
 const modal = document.getElementById('modalMestre');
@@ -19,6 +21,9 @@ atualizarLista({
   limiteLista: limiteAtual,
   container: recentes
 });
+
+atualizarVariaveis(variaveisObjeto);
+
 
 // input de pesquisa
 inputPesquisa.addEventListener('input' , () => {

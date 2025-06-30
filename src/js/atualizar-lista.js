@@ -1,5 +1,5 @@
 import {construirLista} from "./dom-builder/construir-lista.js";
-import OrcamentoService from "./orcamento-service.js";
+import OrcamentoService from "./acessar-local-storage/orcamento-service.js";
 
 function formatString(texto) {
   return texto
