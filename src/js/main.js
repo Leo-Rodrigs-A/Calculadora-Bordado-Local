@@ -1,10 +1,11 @@
 import { atualizarLista } from "./atualizar-lista.js";
 import { atualizarVariaveis } from "./atualizar-variaveis.js"; 
 import { modalNovo } from "./dom-builder/modal-novo.js";
+import { modalVariaveis } from "./dom-builder/modal-variaveis.js";
 
 
 const recentes = document.querySelector(".recentes");
-const variaveisObjeto = document.querySelector('.variaveis');
+const variaveisField = document.querySelector('.variaveis');
 const inputPesquisa = document.querySelector('.pesquisa');
 const botaoNovoOrcamento = document.querySelector('#botaoNovoOrcamento');
 const modal = document.getElementById('modalMestre');
@@ -22,7 +23,7 @@ atualizarLista({
   container: recentes
 });
 
-atualizarVariaveis(variaveisObjeto);
+atualizarVariaveis(variaveisField);
 
 
 // input de pesquisa
@@ -58,7 +59,22 @@ botaoNovoOrcamento.addEventListener('click', () => {
   const fecharModal = document.querySelector('.fechar-modal');
   fecharModal.addEventListener('click' , () => {
   modal.close();
-  })
+  });
+
+})
+
+
+//clique no campo variaveis
+variaveisField.addEventListener('click', () => {
+
+  modal.innerHTML = '';
+  modal.appendChild(modalVariaveis());
+  modal.showModal();
+
+  const fecharModal = document.querySelector('.fechar-modal');
+  fecharModal.addEventListener('click' , () => {
+  modal.close();
+  });
 
 })
 
