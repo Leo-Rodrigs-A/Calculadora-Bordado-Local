@@ -1,3 +1,5 @@
+import { listaOrcamentos as listaBase } from './lista-base.js';
+
 const OrcamentoService = {
   _storageKey: 'orcamentos',
 

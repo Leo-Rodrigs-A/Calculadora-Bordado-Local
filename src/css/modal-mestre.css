@@ -44,12 +44,11 @@
 
 #modalMestre .quantidades{
     display: flex;
-    justify-content: space-between;
     gap: 12px;
 }
 
 #modalMestre .qtdPontos{
-    width: 100%;
+    flex: 1;
     display: flex;
     flex-direction: column;
 }
@@ -70,7 +69,7 @@
 }
 
 #modalMestre .qtdBordados{
-    width: 100%;
+    flex: 1;
     display: flex;
     flex-direction: column;
 }
