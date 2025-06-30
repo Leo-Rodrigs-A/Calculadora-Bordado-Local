@@ -50,7 +50,7 @@ export function modalVariaveis(){
     valorItem.textContent = campo.camposTitle;
 
     const valorItemInput = document.createElement('input');
-    valorItemInput.type = 'number';
+    valorItemInput.type = 'text';
     valorItemInput.id = campo.camposId;
     valorItemInput.placeholder = campo.camposPlaceHolder;
     valorItemInput.required = true;
@@ -73,4 +73,17 @@ export function modalVariaveis(){
     form.append(headerModal, bodyModal);
  
     return form;
+}
+
+function pegarValor(form, id) {
+  return parseFloat(form.querySelector(`#${id}`).value.replace(',', '.'));
+}
+
+export function capturarDadosVariaveis(form) {
+  return [{
+    valorMatriz: pegarValor(form, 'valorMatriz'),
+    valorPorMilPontos: pegarValor(form, 'valorPorMilPontos'),
+    precoUnidade: pegarValor(form, 'precoUnidade'),
+    menorPrecoGlobal: pegarValor(form, 'menorPrecoGlobal')
+  }];
 }
