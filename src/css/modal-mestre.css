@@ -32,7 +32,6 @@
 #modalMestre .bodyModal{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     gap: 8px;
     padding: 8px 12px 16px 12px;
 }
@@ -95,10 +94,11 @@
     border-radius: 12px;
     position: relative;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 #modalMestre .toggle::after{
-    content: '';
+    content: "";
     position: absolute;
     border-radius: 50%;
     left: 3px;
@@ -106,8 +106,19 @@
     width: 18px;
     height: 18px;
     background-color: var(--bege-claro);
-    transition: left 0.3s;
+    transition: left 0.2s;
 }
+
+
+#modalMestre .toggle.ativo {
+    background-color: var(--marrom);
+}
+
+
+#modalMestre .toggle.ativo::after {
+    left: 20px;
+}
+
 
 #modalMestre #calcular{
     width: fit-content;
@@ -119,13 +130,46 @@
     font-weight: 700;
     align-self: flex-end;
 }
+
+
 #modalMestre #calcular:focus{
     outline: solid;
     outline-width: 2px;
     outline-color: var(--marrom);
-}   
+}  
+
+
+ #modalMestre #calcular:hover{
+    cursor: pointer;
+}
+
 
 #modalMestre #salvarOrcamento{
     display: none;
 }
 
+
+#modalMestre #AtualizarVariaveis{
+    width: fit-content;
+    background: var(--bege-escuro);
+    padding: 8px 24px;
+    border: solid;
+    border-width: 2px;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: 0.3s;
+    color: var(--bege-claro);
+    align-self: flex-end;
+}
+
+#modalMestre #AtualizarVariaveis:hover{
+    cursor: pointer;
+    background-color: var(--marrom-leve);
+    color: var(--bege-claro);
+}
+
+#modalMestre .campoVariaveis{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}

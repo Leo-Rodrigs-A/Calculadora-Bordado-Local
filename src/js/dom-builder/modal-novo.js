@@ -109,6 +109,7 @@ export function modalNovo(){
 
         const toggle = document.createElement('div');
         toggle.className = 'toggle bg-bege-escuro-padrao';
+        toggle.dataset.key = bloco.classe;
 
         blocoBox.append(boxLabel, toggle);
         grupoVariaveis.append(blocoBox);

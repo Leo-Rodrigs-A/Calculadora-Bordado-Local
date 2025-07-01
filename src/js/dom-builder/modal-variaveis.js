@@ -9,7 +9,7 @@ export function modalVariaveis(){
     headerModal.className = 'headerModal bg-bege-escuro-padrao';
 
     const titulo = document.createElement('h4');
-    titulo.textContent = 'Novo Orçamento';
+    titulo.textContent = 'Editar Variáveis';
 
     const closeModal = document.createElement('button');
     closeModal.className = 'fechar-modal bg-bege-escuro-padrao';
@@ -80,10 +80,12 @@ function pegarValor(form, id) {
 }
 
 export function capturarDadosVariaveis(form) {
-  return [{
+  return [
+    {
     valorMatriz: pegarValor(form, 'valorMatriz'),
     valorPorMilPontos: pegarValor(form, 'valorPorMilPontos'),
     precoUnidade: pegarValor(form, 'precoUnidade'),
     menorPrecoGlobal: pegarValor(form, 'menorPrecoGlobal')
-  }];
-}
+    }
+  ];
+};

@@ -4,6 +4,7 @@ import { modalNovo } from "./dom-builder/modal-novo.js";
 import { modalVariaveis } from "./dom-builder/modal-variaveis.js";
 import { capturarDadosVariaveis } from './dom-builder/modal-variaveis.js';
 import variaveisService from "./acessar-local-storage/variaveis-service.js";
+import { alternarToggles } from "./utils/toggles.js";
 
 
 const recentes = document.querySelector(".recentes");
@@ -54,7 +55,9 @@ carregarMais.addEventListener('click', () => {
 botaoNovoOrcamento.addEventListener('click', () => {
 
   modal.innerHTML = '';
-  modal.appendChild(modalNovo());
+
+  const form = modalNovo();
+  modal.appendChild(form);
   modal.showModal();
 
   const fecharModal = document.querySelector('.fechar-modal');
@@ -62,6 +65,7 @@ botaoNovoOrcamento.addEventListener('click', () => {
   modal.close();
   });
 
+  alternarToggles(form);
 })
 
 
@@ -80,7 +84,6 @@ variaveisField.addEventListener('click', () => {
 
   form.addEventListener('submit', (e) => {
   e.preventDefault(); // evita o modal fechar logo após o clique em submit, pq eu tenho mais coisa pra fazer que precisa dos dados do modal
-  console.log(document.getElementById('valorMatriz'));
   const novasVariaveis = capturarDadosVariaveis(form);
   variaveisService.salvarVariaveis(novasVariaveis);
   atualizarVariaveis(variaveisField);
