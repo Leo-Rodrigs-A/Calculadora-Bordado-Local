@@ -7,7 +7,7 @@ body{
     padding: 12px;
 }
 
-header{
+.cabecalho-principal{
     display: flex;
     justify-content: center;
     box-sizing: border-box;
@@ -15,17 +15,17 @@ header{
     padding: 12px 16px;
 }
 
-header img{
+.cabecalho-principal img{
     height: 65px;
     width: auto;
     display: block;
 }
 
-.edit-variaveis{
+.cabecalho-principal__btn-editar-mobile{
     display: none
 }
 
-.container{
+.layout-app{
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -34,7 +34,7 @@ header img{
     justify-content: center;
 }
 
-.container .variaveis{
+.painel-metricas{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     justify-content: space-between;
@@ -44,7 +44,7 @@ header img{
     border-radius: 24px;
 }
 
-.container .variaveis div{
+.painel-metricas__card{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -55,13 +55,11 @@ header img{
     cursor: pointer;
 }
 
-.container .variaveis h5{
+.painel-metricas__titulo{
     margin: 4px
 }
 
-
-
-.container .botoes{
+.barra-acoes{
     display: flex;
     justify-content: space-between;
     padding: 20px 36px;
@@ -69,7 +67,7 @@ header img{
     gap: 8px;
 }
 
-.container .botoes .pesquisa{
+.barra-acoes__campo-pesquisa{
     width: 100%;
     border: solid;
     border-radius: 24px;
@@ -82,11 +80,11 @@ input::placeholder{
     color: inherit;
 }
 
-.container .botoes .pesquisa:focus, .container .botoes .pesquisa:focus-visible{
+.barra-acoes__campo-pesquisa:focus, .barra-acoes__campo-pesquisa:focus-visible{
     outline: none;
 }
 
-.container .botoes #botaoNovoOrcamento{
+.barra-acoes__btn-novo{
     border: none;
     border-radius: 24px;
     font-weight: 700;
@@ -94,18 +92,18 @@ input::placeholder{
     padding: 12px 48px;
 }
 
-.container .botoes #botaoNovoOrcamento:hover{
+.barra-acoes__btn-novo:hover{
     cursor: pointer;
     background-color: var(--bege-escuro);
     color: var(--bege-claro);
 }
 
-.container .botoes #botaoNovoOrcamento:focus,
-.container .botoes #botaoNovoOrcamento:focus-visible{
+.barra-acoes__btn-novo:focus,
+.barra-acoes__btn-novo:focus-visible{
     outline: solid 2.5px;
 }
 
-footer{
+.rodape-principal{
     display: flex;
     justify-content: center;
     padding: 28px 0px;

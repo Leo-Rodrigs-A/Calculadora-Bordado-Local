@@ -3,50 +3,49 @@
         min-width: 330px;
         gap: 12px;
     }
-    header{
+    .cabecalho-principal{
         display: flex;
         padding: 8px 14px;
         justify-content: space-between;
     }  
-    header img{
+    .cabecalho-principal img{
         height: 48px;
     }
 
-    .edit-variaveis{
+    .cabecalho-principal__btn-editar-mobile{
         display: flex;
         object-fit: scale-down;
         border-radius: 8px;
         padding: 4px 4px;
     }
 
-    .container .variaveis{
+    .layout-app .painel-metricas{
         display: none;
     }
 
-    .container{
+    .layout-app{
         gap:12px;
     }
 
-    .container .botoes{
+    .layout-app .barra-acoes{
         padding: 12px;
     }
 
-    .container .botoes #botaoNovoOrcamento{
+    .layout-app .barra-acoes__btn-novo{
     padding: 12px 12px;
     }
 
-    .container .recentes{
+    .layout-app .recentes{
        grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); 
     }
     
-    .container .lista{
+    .layout-app .lista{
         padding: 16px;
     }
 
-    #modalMestre .quantidades{
+    .modal .modal__quantidade-grupo{
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 }
-
