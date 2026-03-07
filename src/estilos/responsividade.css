@@ -12,8 +12,8 @@
         height: 48px;
     }
 
-    .cabecalho-principal__btn-editar-mobile{
-        display: flex;
+    .cabecalho-principal .cabecalho-principal__btn-editar-mobile{
+        display: block;
         object-fit: scale-down;
         border-radius: 8px;
         padding: 4px 4px;
@@ -44,8 +44,27 @@
     }
 
     .modal .modal__quantidade-grupo{
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .modal{
+        width: calc(100vw - 24px);
+        max-width: 420px;
+    }
+
+    .modal .modal__corpo.modal__corpo--variaveis{
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .modal .modal__campo-configuracao.modal__campo-configuracao--variaveis{
+        width: 100%;
+    }
+
+    .modal .modal__campo-configuracao.modal__campo-configuracao--variaveis input{
+        width: 100%;
+        box-sizing: border-box;
+    }
 }

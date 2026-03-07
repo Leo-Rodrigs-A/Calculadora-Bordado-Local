@@ -21,8 +21,8 @@ body{
     display: block;
 }
 
-.cabecalho-principal__btn-editar-mobile{
-    display: none
+.cabecalho-principal .cabecalho-principal__btn-editar-mobile{
+    display: none;
 }
 
 .layout-app{

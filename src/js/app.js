@@ -9,6 +9,7 @@ const containerRecentes = document.querySelector(".recentes");
 const containerVariaveis = document.querySelector('.painel-metricas');
 const inputPesquisa = document.querySelector('.barra-acoes__campo-pesquisa');
 const btnNovoOrcamento = document.querySelector('#btn-novo-orcamento');
+const btnEditVariaveisMobile = document.querySelector('.cabecalho-principal__btn-editar-mobile');
 const dialogGlobal = document.getElementById('dialog-global');
 const btnCarregarMais = document.querySelector('.lista-cards__btn-carregar-mais');
 
@@ -22,6 +23,26 @@ atualizarInterfaceLista({
 });
 
 atualizarInterfaceVariaveis(containerVariaveis);
+
+function gerenciarAberturaModalVariaveis() {
+  dialogGlobal.innerHTML = '';
+  const formulario = criarModalEditarVariaveis();
+  dialogGlobal.appendChild(formulario);
+  dialogGlobal.showModal();
+
+  const btnFechar = formulario.querySelector('.modal__btn-fechar');
+  btnFechar.addEventListener('click' , () => {
+    dialogGlobal.close();
+  });
+
+  formulario.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const novasVariaveis = lerDadosFormularioVariaveis(formulario);
+    ServicoVariaveis.salvarConfiguracoes(novasVariaveis);
+    atualizarInterfaceVariaveis(containerVariaveis);
+    dialogGlobal.close();
+  });
+}
 
 // Eventos
 inputPesquisa.addEventListener('input' , () => {
@@ -56,22 +77,5 @@ btnNovoOrcamento.addEventListener('click', () => {
   inicializarInterruptores(formulario);
 });
 
-containerVariaveis.addEventListener('click', () => {
-  dialogGlobal.innerHTML = '';
-  const formulario = criarModalEditarVariaveis();  
-  dialogGlobal.appendChild(formulario);
-  dialogGlobal.showModal();
-
-  const btnFechar = formulario.querySelector('.modal__btn-fechar');
-  btnFechar.addEventListener('click' , () => {
-    dialogGlobal.close();
-  });
-
-  formulario.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const novasVariaveis = lerDadosFormularioVariaveis(formulario);
-    ServicoVariaveis.salvarConfiguracoes(novasVariaveis);
-    atualizarInterfaceVariaveis(containerVariaveis);
-    dialogGlobal.close();
-  });
-});
+containerVariaveis.addEventListener('click', gerenciarAberturaModalVariaveis);
+btnEditVariaveisMobile.addEventListener('click', gerenciarAberturaModalVariaveis);

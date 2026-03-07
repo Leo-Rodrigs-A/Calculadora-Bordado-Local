@@ -1,6 +1,9 @@
+import { variaveisIniciais } from '../dados-iniciais/variaveis-iniciais.js';
+
 export function criarModalEditarVariaveis(){
     const formulario = document.createElement('form');
     formulario.method = 'dialog';
+    formulario.className = 'modal__formulario modal__formulario--variaveis';
 
     const cabecalho = document.createElement('div');
     cabecalho.className = 'modal__cabecalho u-tema-escuro-padrao';
@@ -19,7 +22,7 @@ export function criarModalEditarVariaveis(){
     cabecalho.append(titulo, btnFechar);
 
     const corpo = document.createElement('div');
-    corpo.className ='modal__corpo';
+    corpo.className ='modal__corpo modal__corpo--variaveis';
 
     const camposConfiguracao = [
         {titulo: 'Valor da Matriz', id: 'input-preco-matriz', placeholder: 'Ex: 30' },
@@ -30,7 +33,7 @@ export function criarModalEditarVariaveis(){
 
     camposConfiguracao.forEach((campo) =>{
         const itemBox = document.createElement('div');
-        itemBox.className = 'modal__campo-configuracao u-tema-claro-padrao';
+        itemBox.className = 'modal__campo-configuracao modal__campo-configuracao--variaveis u-tema-claro-padrao';
 
         const rotulo = document.createElement('h6');
         rotulo.textContent = campo.titulo;
@@ -39,7 +42,6 @@ export function criarModalEditarVariaveis(){
         input.type = 'text';
         input.id = campo.id;
         input.placeholder = campo.placeholder;
-        input.required = true;
 
         itemBox.append(rotulo, input);
         corpo.append(itemBox);
@@ -57,17 +59,20 @@ export function criarModalEditarVariaveis(){
     return formulario;
 }
 
-function obterValorNumerico(form, id) {
-  return parseFloat(form.querySelector(`#${id}`).value.replace(',', '.'));
+function obterValorNumerico(form, id, valorPadrao) {
+  const input = form.querySelector(`#${id}`);
+  if (!input.value.trim()) return valorPadrao;
+  return parseFloat(input.value.replace(',', '.'));
 }
 
 export function lerDadosFormularioVariaveis(form) {
+  const padrao = variaveisIniciais[0];
   return [
     {
-    custoCriacaoMatriz: obterValorNumerico(form, 'input-preco-matriz'),
-    custoPorMilPontos: obterValorNumerico(form, 'input-preco-milheiro'),
-    valorMinimoPorPeca: obterValorNumerico(form, 'input-minimo-unidade'),
-    valorMinimoAbsoluto: obterValorNumerico(form, 'input-minimo-global')
+    custoCriacaoMatriz: obterValorNumerico(form, 'input-preco-matriz', padrao.custoCriacaoMatriz),
+    custoPorMilPontos: obterValorNumerico(form, 'input-preco-milheiro', padrao.custoPorMilPontos),
+    valorMinimoPorPeca: obterValorNumerico(form, 'input-minimo-unidade', padrao.valorMinimoPorPeca),
+    valorMinimoAbsoluto: obterValorNumerico(form, 'input-minimo-global', padrao.valorMinimoAbsoluto)
     }
   ];
 };
