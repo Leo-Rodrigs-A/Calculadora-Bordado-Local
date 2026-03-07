@@ -26,10 +26,8 @@ function atualizarListaAtual() {
 }
 
 function gerenciarAberturaModalVariaveis() {
-  dialogGlobal.innerHTML = '';
   const formulario = criarModalEditarVariaveis();
-  dialogGlobal.appendChild(formulario);
-  dialogGlobal.showModal();
+  abrirModal(formulario);
 
   const btnFechar = formulario.querySelector('.modal__btn-fechar');
   btnFechar.addEventListener('click' , () => {
