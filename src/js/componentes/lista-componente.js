@@ -11,6 +11,7 @@ export function renderizarListaOrcamentos(listaSliced, container){
     const cardOrcamento = document.createElement('li');
     cardOrcamento.className = 'card-orcamento u-tema-medio-padrao';
     cardOrcamento.id = bordado.id;
+    cardOrcamento.dataset.orcamentoId = bordado.id;
 
     const cabecalho = document.createElement('section');
     cabecalho.className = 'card-orcamento__cabecalho u-tema-escuro-padrao';
@@ -26,6 +27,7 @@ export function renderizarListaOrcamentos(listaSliced, container){
     btnEditar.src = 'src/img/edit-icon.svg';
     btnEditar.alt = 'Editar';
     btnEditar.className = 'card-orcamento__btn-editar u-tema-claro-padrao';
+    btnEditar.draggable = false;
 
     const linhaData = document.createElement('div');
     linhaData.className = 'card-orcamento__linha-info';

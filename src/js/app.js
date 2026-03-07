@@ -2,6 +2,8 @@ import { atualizarInterfaceLista } from "./controladores/lista-controlador.js";
 import { atualizarInterfaceVariaveis } from "./controladores/variaveis-controlador.js"; 
 import { criarModalNovoOrcamento } from "./componentes/modal-novo.js";
 import { criarModalEditarVariaveis, lerDadosFormularioVariaveis } from "./componentes/modal-variaveis.js";
+import { criarModalVisualizar } from "./componentes/modal-visualizar.js";
+import ServicoOrcamentos from "./modelos/orcamento-modelo.js";
 import ServicoVariaveis from "./modelos/variaveis-modelo.js";
 import { inicializarInterruptores } from "./utilitarios/gerenciador-toggles.js";
 
@@ -15,14 +17,13 @@ const btnCarregarMais = document.querySelector('.lista-cards__btn-carregar-mais'
 
 let limiteAtual = 12;
 
-// Inicialização
-atualizarInterfaceLista({
-  pesquisa: '',
-  limiteLista: limiteAtual,
-  container: containerRecentes
-});
-
-atualizarInterfaceVariaveis(containerVariaveis);
+function atualizarListaAtual() {
+  atualizarInterfaceLista({
+    pesquisa: inputPesquisa.value,
+    limiteLista: limiteAtual,
+    container: containerRecentes
+  });
+}
 
 function gerenciarAberturaModalVariaveis() {
   dialogGlobal.innerHTML = '';
@@ -44,30 +45,48 @@ function gerenciarAberturaModalVariaveis() {
   });
 }
 
+function abrirModal(conteudo) {
+  dialogGlobal.innerHTML = '';
+  dialogGlobal.appendChild(conteudo);
+  dialogGlobal.showModal();
+}
+
+function gerenciarAberturaModalVisualizacao(bordado) {
+  const modal = criarModalVisualizar(bordado, {
+    onFechar: () => {
+      dialogGlobal.close();
+    },
+    onExcluir: () => {
+      ServicoOrcamentos.excluir(bordado.id);
+      atualizarListaAtual();
+      dialogGlobal.close();
+    },
+    onEditar: () => {
+      dialogGlobal.close();
+    }
+  });
+
+  abrirModal(modal);
+}
+
+// Inicialização
+atualizarListaAtual();
+atualizarInterfaceVariaveis(containerVariaveis);
+
 // Eventos
 inputPesquisa.addEventListener('input' , () => {
   limiteAtual = 12;
-  atualizarInterfaceLista({
-    pesquisa: inputPesquisa.value, 
-    limiteLista: limiteAtual, 
-    container: containerRecentes
-  }); 
+  atualizarListaAtual();
 });
 
 btnCarregarMais.addEventListener('click', () => {
   limiteAtual += 12;
-  atualizarInterfaceLista({
-    pesquisa: inputPesquisa.value, 
-    limiteLista: limiteAtual, 
-    container: containerRecentes
-  }); 
+  atualizarListaAtual();
 });
 
 btnNovoOrcamento.addEventListener('click', () => {
-  dialogGlobal.innerHTML = '';
   const formulario = criarModalNovoOrcamento();
-  dialogGlobal.appendChild(formulario);
-  dialogGlobal.showModal();
+  abrirModal(formulario);
 
   const btnFechar = formulario.querySelector('.modal__btn-fechar');
   btnFechar.addEventListener('click' , () => {
@@ -79,3 +98,20 @@ btnNovoOrcamento.addEventListener('click', () => {
 
 containerVariaveis.addEventListener('click', gerenciarAberturaModalVariaveis);
 btnEditVariaveisMobile.addEventListener('click', gerenciarAberturaModalVariaveis);
+
+containerRecentes.addEventListener('click', (event) => {
+  const cardOrcamento = event.target.closest('.card-orcamento');
+
+  if (!cardOrcamento || !containerRecentes.contains(cardOrcamento)) {
+    return;
+  }
+
+  const idOrcamento = cardOrcamento.dataset.orcamentoId || cardOrcamento.id;
+  const bordado = ServicoOrcamentos.buscarPorId(idOrcamento);
+
+  if (!bordado) {
+    return;
+  }
+
+  gerenciarAberturaModalVisualizacao(bordado);
+});

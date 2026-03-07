@@ -19,6 +19,10 @@ const ServicoOrcamentos = {
     return this._carregar();
   },
 
+  buscarPorId(id) {
+    return this._carregar().find(item => item.id === id);
+  },
+
   salvarNovo(orcamento) {
     const lista = this._carregar();
     lista.unshift(orcamento);

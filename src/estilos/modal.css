@@ -166,3 +166,113 @@
     flex-direction: column;
     gap: 2px;
 }
+
+.modal__corpo--visualizacao{
+    gap: 16px;
+}
+
+.modal__resumo-visualizacao{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal__subtitulo-visualizacao{
+    font-weight: 700;
+    color: var(--marrom);
+}
+
+.modal__tags-detalhes{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.modal__tag-detalhe{
+    border: solid 1px;
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 14px;
+}
+
+.modal__destaque-valor{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.modal__linha-info-visualizacao{
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    align-items: center;
+}
+
+.modal__rotulo-visualizacao,
+.modal__data-visualizacao{
+    font-weight: 700;
+    color: var(--marrom);
+}
+
+.modal__valor-cobrar{
+    font-size: 32px;
+    color: var(--marrom);
+}
+
+.modal__titulo-grade{
+    text-align: center;
+    color: var(--marrom);
+}
+
+.modal__grade-valores{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.modal__card-valor{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border: solid 1px;
+    border-radius: 16px;
+    padding: 12px;
+    text-align: center;
+}
+
+.modal__card-quantidade{
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.modal__card-preco{
+    font-size: 18px;
+}
+
+.modal__acoes-visualizacao{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.modal__btn-acao{
+    border-radius: 16px;
+    border: solid 2px var(--marrom);
+    padding: 10px 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal__btn-acao--outline{
+    background: transparent;
+    color: var(--marrom);
+}
+
+.modal__btn-acao--solid{
+    border-color: var(--bege-claro);
+}
+
+.modal__btn-acao:hover{
+    transform: translateY(-1px);
+}

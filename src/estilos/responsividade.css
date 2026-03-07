@@ -67,4 +67,16 @@
         width: 100%;
         box-sizing: border-box;
     }
+
+    .modal__grade-valores{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .modal__acoes-visualizacao{
+        grid-template-columns: 1fr;
+    }
+
+    .modal__valor-cobrar{
+        font-size: 28px;
+    }
 }
