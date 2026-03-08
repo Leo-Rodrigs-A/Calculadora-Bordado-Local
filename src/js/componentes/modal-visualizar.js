@@ -1,4 +1,5 @@
 import { formatarDataExibicao, formatarMoeda } from '../utilitarios/formatadores.js';
+import { quantidadesPadrao } from '../dados-iniciais/quantidades-padrao.js';
 
 function criarTagDetalhe(rotulo, valor) {
   const item = document.createElement('div');
@@ -18,16 +19,7 @@ export function criarModalVisualizarOrcamento(orcamento, callbacks = {}) {
     onEditar = () => {}
   } = callbacks;
 
-  const labelsQuantidade = [
-    '1 und',
-    '+2 und',
-    '+3 und',
-    '+4 und',
-    '+5 und',
-    '+6 und',
-    '+7 und',
-    '+8 und'
-  ];
+  const labelsQuantidade = quantidadesPadrao
 
   const container = document.createElement('section');
   container.className = 'modal__visualizacao';
@@ -35,8 +27,15 @@ export function criarModalVisualizarOrcamento(orcamento, callbacks = {}) {
   const cabecalho = document.createElement('div');
   cabecalho.className = 'modal__cabecalho u-tema-escuro-padrao';
 
+  const cabecalhoTitulo = document.createElement('div');
+  cabecalhoTitulo.className = 'modal__cabecalho-titulo';
+
   const titulo = document.createElement('h4');
   titulo.textContent = orcamento.nomeProjeto;
+
+  const subtitulo = document.createElement('p');
+  subtitulo.className = 'modal__subtitulo-visualizacao';
+  subtitulo.textContent = `${orcamento.totalPontos.toLocaleString('pt-BR')} pontos`;
 
   const btnFechar = document.createElement('button');
   btnFechar.type = 'button';
@@ -48,57 +47,45 @@ export function criarModalVisualizarOrcamento(orcamento, callbacks = {}) {
 
   btnFechar.appendChild(iconeFechar);
   btnFechar.addEventListener('click', onFechar);
-  cabecalho.append(titulo, btnFechar);
+  cabecalhoTitulo.append(titulo, subtitulo);
+  cabecalho.append(cabecalhoTitulo, btnFechar);
 
   const corpo = document.createElement('div');
   corpo.className = 'modal__corpo modal__corpo--visualizacao';
 
-  const resumo = document.createElement('section');
-  resumo.className = 'modal__resumo-visualizacao';
-
-  const subtitulo = document.createElement('p');
-  subtitulo.className = 'modal__subtitulo-visualizacao';
-  subtitulo.textContent = `${orcamento.totalPontos.toLocaleString('pt-BR')} pontos`;
-
-  const tags = document.createElement('div');
-  tags.className = 'modal__tags-detalhes';
-
-  const detalhes = [
-    { rotulo: 'Criar matriz', valor: orcamento.precisaCriarMatriz ? 'Sim' : 'Não' },
-    { rotulo: 'Material do cliente', valor: orcamento.usaMaterialCliente ? 'Sim' : 'Não' },
-    { rotulo: 'Urgente', valor: orcamento.ehUrgente ? 'Sim' : 'Não' }
-  ];
-
-  detalhes.forEach((detalhe) => {
-    tags.appendChild(criarTagDetalhe(detalhe.rotulo, detalhe.valor));
-  });
-
-  resumo.append(subtitulo, tags);
-
   const destaque = document.createElement('section');
   destaque.className = 'modal__destaque-valor';
 
-  const linhaInfo = document.createElement('div');
-  linhaInfo.className = 'modal__linha-info-visualizacao';
+  const linhaRotulos = document.createElement('div');
+  linhaRotulos.className = 'modal__linha-info-visualizacao';
 
   const rotuloValor = document.createElement('span');
   rotuloValor.className = 'modal__rotulo-visualizacao';
-  rotuloValor.textContent = 'Valor a cobrar';
+  rotuloValor.textContent = 'Valor a cobrar pelo bordado';
 
-  const dataCriacao = document.createElement('span');
-  dataCriacao.className = 'modal__data-visualizacao';
-  dataCriacao.textContent = formatarDataExibicao(orcamento.dataCriacao);
+  const rotuloDataCriacao = document.createElement('span');
+  rotuloDataCriacao.className = 'modal__rotulo-visualizacao';
+  rotuloDataCriacao.textContent = 'Criado em:';
 
-  linhaInfo.append(rotuloValor, dataCriacao);
+  linhaRotulos.append(rotuloValor, rotuloDataCriacao);
+
+  const linhaValores = document.createElement('div');
+  linhaValores.className = 'modal__linha-info-visualizacao';
 
   const valorDestaque = document.createElement('strong');
   valorDestaque.className = 'modal__valor-cobrar';
   valorDestaque.textContent = formatarMoeda(orcamento.valorUnitario);
 
+  const dataCriacao = document.createElement('span');
+  dataCriacao.className = 'modal__data-visualizacao';
+  dataCriacao.textContent = formatarDataExibicao(orcamento.dataCriacao);
+
+  linhaValores.append(valorDestaque, dataCriacao);
+
   const divisor = document.createElement('hr');
   divisor.className = 'u-divisor-padrao';
 
-  destaque.append(linhaInfo, valorDestaque, divisor);
+  destaque.append(linhaRotulos, linhaValores, divisor);
 
   const tituloGrade = document.createElement('h5');
   tituloGrade.className = 'modal__titulo-grade';
@@ -140,7 +127,7 @@ export function criarModalVisualizarOrcamento(orcamento, callbacks = {}) {
   btnEditar.addEventListener('click', onEditar);
 
   rodape.append(btnExcluir, btnEditar);
-  corpo.append(resumo, destaque, tituloGrade, grade, rodape);
+  corpo.append(destaque, tituloGrade, grade, rodape);
   container.append(cabecalho, corpo);
 
   return container;
