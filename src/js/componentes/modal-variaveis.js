@@ -1,6 +1,4 @@
-import { variaveisIniciais } from '../dados-iniciais/variaveis-iniciais.js';
-
-export function criarModalEditarVariaveis(){
+export function criarModalEditarVariaveis(configuracoesAtuais){
     const formulario = document.createElement('form');
     formulario.method = 'dialog';
     formulario.className = 'modal__formulario modal__formulario--variaveis';
@@ -25,10 +23,10 @@ export function criarModalEditarVariaveis(){
     corpo.className ='modal__corpo modal__corpo--variaveis';
 
     const camposConfiguracao = [
-        {titulo: 'Valor da Matriz', id: 'input-preco-matriz', placeholder: 'Ex: 30' },
-        {titulo: 'Valor por Mil Pontos', id: 'input-preco-milheiro', placeholder: 'Ex: 1.4' },
-        {titulo: 'Preço Unidade Valor mínimo (1 und)', id: 'input-minimo-unidade', placeholder: 'Ex: 15' },
-        {titulo: 'Valor min Geral', id: 'input-minimo-global', placeholder: 'Ex: 8' }
+        {titulo: 'Valor da Matriz', id: 'input-preco-matriz', placeholder: 'Ex: 30', chave: 'custoCriacaoMatriz' },
+        {titulo: 'Valor por Mil Pontos', id: 'input-preco-milheiro', placeholder: 'Ex: 1.4', chave: 'custoPorMilPontos' },
+        {titulo: 'Preço Unidade Valor mínimo (1 und)', id: 'input-minimo-unidade', placeholder: 'Ex: 15', chave: 'valorMinimoPorPeca' },
+        {titulo: 'Valor min Geral', id: 'input-minimo-global', placeholder: 'Ex: 8', chave: 'valorMinimoAbsoluto' }
     ]
 
     camposConfiguracao.forEach((campo) =>{
@@ -42,6 +40,7 @@ export function criarModalEditarVariaveis(){
         input.type = 'text';
         input.id = campo.id;
         input.placeholder = campo.placeholder;
+        input.value = configuracoesAtuais[campo.chave];
 
         itemBox.append(rotulo, input);
         corpo.append(itemBox);
@@ -65,14 +64,11 @@ function obterValorNumerico(form, id, valorPadrao) {
   return parseFloat(input.value.replace(',', '.'));
 }
 
-export function lerDadosFormularioVariaveis(form) {
-  const padrao = variaveisIniciais[0];
-  return [
-    {
-    custoCriacaoMatriz: obterValorNumerico(form, 'input-preco-matriz', padrao.custoCriacaoMatriz),
-    custoPorMilPontos: obterValorNumerico(form, 'input-preco-milheiro', padrao.custoPorMilPontos),
-    valorMinimoPorPeca: obterValorNumerico(form, 'input-minimo-unidade', padrao.valorMinimoPorPeca),
-    valorMinimoAbsoluto: obterValorNumerico(form, 'input-minimo-global', padrao.valorMinimoAbsoluto)
-    }
-  ];
+export function lerDadosFormularioVariaveis(form, configuracoesAtuais) {
+  return {
+    custoCriacaoMatriz: obterValorNumerico(form, 'input-preco-matriz', configuracoesAtuais.custoCriacaoMatriz),
+    custoPorMilPontos: obterValorNumerico(form, 'input-preco-milheiro', configuracoesAtuais.custoPorMilPontos),
+    valorMinimoPorPeca: obterValorNumerico(form, 'input-minimo-unidade', configuracoesAtuais.valorMinimoPorPeca),
+    valorMinimoAbsoluto: obterValorNumerico(form, 'input-minimo-global', configuracoesAtuais.valorMinimoAbsoluto)
+  };
 };

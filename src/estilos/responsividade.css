@@ -19,7 +19,7 @@
         padding: 4px 4px;
     }
 
-    .layout-app .painel-metricas{
+    .layout-app .painel-variaveis{
         display: none;
     }
 
@@ -35,15 +35,11 @@
     padding: 12px 12px;
     }
 
-    .layout-app .recentes{
+    .layout-app .lista-cards{
        grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); 
     }
-    
-    .layout-app .lista{
-        padding: 16px;
-    }
 
-    .modal .modal__quantidade-grupo{
+    .modal .modal__linha-dupla{
         display: flex;
         flex-direction: column;
         gap: 12px;

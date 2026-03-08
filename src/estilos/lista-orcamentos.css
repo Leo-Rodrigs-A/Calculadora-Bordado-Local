@@ -57,7 +57,7 @@
     padding: 16px 16px 0px 16px;
 }
 
-.card-orcamento__divisor{
+.u-divisor-padrao{
     border: none;
     background-color: var(--marrom-leve);
     height: 1px;
@@ -73,7 +73,7 @@
     font-weight: 700;
 }
 
-.lista-cards__btn-carregar-mais:hover{
+.secao-lista__btn-carregar-mais:hover{
     cursor: pointer;
     color: var(--marrom);
 }

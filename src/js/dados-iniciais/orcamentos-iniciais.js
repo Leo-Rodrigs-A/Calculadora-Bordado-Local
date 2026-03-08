@@ -7,8 +7,8 @@ export const orcamentosIniciais = [
         precisaCriarMatriz: true,
         ehUrgente: false,
         usaMaterialCliente: false,
-        valores: ["8","8","8","8","8","8","8","8"],
-        orcamento: "8"
+        valoresPorQuantidade: [8, 8, 8, 8, 8, 8, 8, 8],
+        valorUnitario: 8
     },
     {
         id: "2",
@@ -18,8 +18,8 @@ export const orcamentosIniciais = [
         precisaCriarMatriz: true,
         ehUrgente: false,
         usaMaterialCliente: false,
-        valores: ["31","25","22","20","19","17","14","13"],
-        orcamento: "31"
+        valoresPorQuantidade: [31, 25, 22, 20, 19, 17, 14, 13],
+        valorUnitario: 31
     },
     {
         id: "3",
@@ -29,8 +29,8 @@ export const orcamentosIniciais = [
         precisaCriarMatriz: true,
         ehUrgente: false,
         usaMaterialCliente: false,
-        valores: ["15","12","11","10","9","9","8","8"],
-        orcamento: "15",
+        valoresPorQuantidade: [15, 12, 11, 10, 9, 9, 8, 8],
+        valorUnitario: 15,
     },
     {
         id: "4",
@@ -40,8 +40,8 @@ export const orcamentosIniciais = [
         precisaCriarMatriz: true,
         ehUrgente: false,
         usaMaterialCliente: false,
-        valores: ["15","12","11","10","9","9","8","8"],
-        orcamento: "15",
+        valoresPorQuantidade: [15, 12, 11, 10, 9, 9, 8, 8],
+        valorUnitario: 15,
     },
     {
         id: "5",
@@ -51,8 +51,8 @@ export const orcamentosIniciais = [
         precisaCriarMatriz: true,
         ehUrgente: false,
         usaMaterialCliente: false,
-        valores: ["15","12","11","10","9","9","8","8"],
-        orcamento: "15",
+        valoresPorQuantidade: [15, 12, 11, 10, 9, 9, 8, 8],
+        valorUnitario: 15,
     },
     {
         id: "6",
@@ -62,8 +62,8 @@ export const orcamentosIniciais = [
         precisaCriarMatriz: true,
         ehUrgente: false,
         usaMaterialCliente: false,
-        valores: ["16","13","12","11","10","9","8","8"],
-        orcamento: "15",
+        valoresPorQuantidade: [16, 13, 12, 11, 10, 9, 8, 8],
+        valorUnitario: 15,
     },
     {
         id: "7",
@@ -73,8 +73,8 @@ export const orcamentosIniciais = [
         precisaCriarMatriz: true,
         ehUrgente: false,
         usaMaterialCliente: false,
-        valores: ["15","12","11","10","9","9","8","8"],
-        orcamento: "15",
+        valoresPorQuantidade: [15, 12, 11, 10, 9, 9, 8, 8],
+        valorUnitario: 15,
     },
     {
         id: "8",
@@ -84,8 +84,8 @@ export const orcamentosIniciais = [
         precisaCriarMatriz: true,
         ehUrgente: false,
         usaMaterialCliente: false,
-        valores: ["15","12","11","10","9","9","8","8"],
-        orcamento: "15",
+        valoresPorQuantidade: [15, 12, 11, 10, 9, 9, 8, 8],
+        valorUnitario: 15,
     },
     {
         id: "9",
@@ -95,8 +95,8 @@ export const orcamentosIniciais = [
         precisaCriarMatriz: true,
         ehUrgente: false,
         usaMaterialCliente: false,
-        valores: ["15","12","11","10","9","9","8","8"],
-        orcamento: "15",
+        valoresPorQuantidade: [15, 12, 11, 10, 9, 9, 8, 8],
+        valorUnitario: 15,
     },
     {
         id: "10",
@@ -106,8 +106,8 @@ export const orcamentosIniciais = [
         precisaCriarMatriz: true,
         ehUrgente: false,
         usaMaterialCliente: false,
-        valores: ["31","25","22","21","19","18","14","13"],
-        orcamento: "31",
+        valoresPorQuantidade: [31, 25, 22, 21, 19, 18, 14, 13],
+        valorUnitario: 31,
     },
     {
         id: "11",
@@ -117,8 +117,8 @@ export const orcamentosIniciais = [
         precisaCriarMatriz: true,
         ehUrgente: false,
         usaMaterialCliente: false,
-        valores: ["15","12","11","10","9","9","8","8"],
-        orcamento: "15",
+        valoresPorQuantidade: [15, 12, 11, 10, 9, 9, 8, 8],
+        valorUnitario: 15,
     },
     {
         id: "12",
@@ -128,7 +128,7 @@ export const orcamentosIniciais = [
         precisaCriarMatriz: true,
         ehUrgente: false,
         usaMaterialCliente: false,
-        valores: ["21","17","15","14","13","12","10","9"],
-        orcamento: "21",
+        valoresPorQuantidade: [21, 17, 15, 14, 13, 12, 10, 9],
+        valorUnitario: 21,
     },
 ]

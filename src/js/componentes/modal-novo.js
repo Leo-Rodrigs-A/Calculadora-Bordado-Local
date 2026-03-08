@@ -22,14 +22,14 @@ export function criarModalNovoOrcamento(){
     corpo.className ='modal__corpo';
 
     const grupoNome = document.createElement('div');
-    grupoNome.className = 'modal__nome-matriz u-tema-claro-padrao';
+    grupoNome.className = 'modal__nome-projeto u-tema-claro-padrao';
 
     const rotuloNome = document.createElement('h6');
-    rotuloNome.textContent = 'Nome da Matriz';
+    rotuloNome.textContent = 'Nome do Projeto';
 
     const inputNome = document.createElement('input');
     inputNome.type = 'text';
-    inputNome.id = 'input-nome-matriz';
+    inputNome.id = 'input-nome-projeto';
     inputNome.placeholder = 'Digite um nome';
     inputNome.required = true;
 
@@ -92,7 +92,7 @@ export function criarModalNovoOrcamento(){
         grupoInterruptores.append(itemOpcao);
 
         const divisor = document.createElement('hr');
-        divisor.className = 'card-orcamento__divisor';
+        divisor.className = 'u-divisor-padrao';
 
         grupoInterruptores.append(divisor);
     });
@@ -106,7 +106,7 @@ export function criarModalNovoOrcamento(){
     btnSalvar.className = 'modal__btn-salvar';
     btnSalvar.id = 'btn-acao-salvar';
     btnSalvar.type = 'submit';
-    btnSalvar.textContent = 'Salvar Orcamento';
+    btnSalvar.textContent = 'Salvar Orçamento';
 
     corpo.append(grupoNome, linhaDupla, grupoInterruptores, btnCalcular, btnSalvar);
     formulario.append(cabecalho, corpo);

@@ -42,12 +42,6 @@
     border-color: var(--marrom);
 }
 
-.u-tema-marrom-leve{
-    background-color: var(--marrom-leve);
-    color: var(--bege-claro);
-    border-color: var(--bege-claro);
-}
-
 .u-tema-destaque{
     background-color: var(--marrom);
     color: var(--bege-claro);

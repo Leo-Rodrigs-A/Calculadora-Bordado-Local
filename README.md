@@ -5,33 +5,30 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-%23F7DF1E.svg?style=flat&logo=javascript&logoColor=black)
 ![localStorage](https://img.shields.io/badge/localStorage-used-blueviolet?style=flat)
 
-Este projeto é uma calculadora de orçamentos de bordados online, criada para gerenciar orçamentos de bordados de forma prática, rápida e organizada. Foi desenvolvido para atender a uma necessidade pessoal em um ambiente de produção de vestuário e também serviu como um exercício prático de aprendizado em programação e desenvolvimento web.
+Este projeto é uma calculadora de orçamentos de bordados online, criada para gerenciar orçamentos de forma prática, rápida e organizada. Foi desenvolvido para atender a uma necessidade pessoal em um ambiente de produção de vestuário e também serviu como exercício prático de aprendizado em programação e desenvolvimento web.
 
 ## Como usar
 
 - [basta clicar aqui](https://leo-rodrigs-a.github.io/Calculadora-Bordado-Local/) para acessar o aplicativo rapidamente.
 - Os dados são salvos no localStorage, sem uso de banco de dados.
 
-- Na primeira vez que for executado no seu navegador, uma lista de cards pré definidos de orçamentos será carregada para você começar.
-- Clique no card para ver informações detalhadas
-- você pode excluir orçamentos clicando no icone da lixeira no card do orçamento.
-- Clique no botão "Novo" para calcular um novo orçamento com base na quantidade de camisetas que você bordará e na quantidade de pontos de bordado específicos.
-
-- Agora você pode salvar ou descartar este orçamento.
-- Se você salvar, ele aparecerá no topo da lista de orçamentos.
+- Na primeira execução no navegador, uma lista base de orçamentos é carregada automaticamente.
+- Clique no card para ver informações detalhadas.
+- Você pode excluir um orçamento pelo modal de visualização.
+- Clique em "Novo" para abrir o formulário de criação de orçamento.
 - Você pode pesquisar orçamentos na sua lista digitando o título na barra de pesquisa.
 - Você pode clicar em um orçamento para ver mais detalhes.
-- Você pode recalcular o preço de um orçamento já salvo, clicando em editar e alterando os dados
-- Você pode excluir um orçamento da lista.
+- As variáveis globais podem ser ajustadas pelo painel principal ou pelo botão mobile.
 
 ---
 
 ## 🚀 Recursos
 
-- 📋 Crie e armazene orçamentos com detalhes essenciais.
+- 📋 Visualize e gerencie orçamentos com detalhes essenciais.
 - 🔍 Filtro de pesquisa dinâmico para orçamentos.
 - 🗃️ Exibe os 12 orçamentos mais recentes.
 - ➕ Botão "Carregar mais" para exibir orçamentos adicionais.
+- ⚙️ Edição de variáveis globais de cálculo com persistência local.
 - 💾 Dados armazenados em `localStorage` (somente client side).
 
 ---
@@ -105,35 +102,39 @@ Este projeto foi um laboratório pessoal para aprendizado e prática. Cada funci
 ├── README.md
 ├── index.html
 └── src
-    ├── css
-    │   ├── color.css
-    │   ├── lista.css
-    │   ├── modal-mestre.css
-    │   ├── reset.css
-    │   ├── responsivo.css
-    │   └── style.css
+    ├── estilos
+    │   ├── cores.css
+    │   ├── global.css
+    │   ├── lista-orcamentos.css
+    │   ├── modal.css
+    │   ├── reset.css
+    │   └── responsividade.css
     ├── img
-    │   ├── edit-icon.svg
-    │   ├── favicon.webp
-    │   ├── logo-dtex.webp
-    │   └── lupa.svg
+    │   ├── edit-icon.svg
+    │   ├── favicon.webp
+    │   ├── logo-dtex.webp
+    │   └── lupa.svg
     └── js
-        ├── acessar-local-storage
-        │   ├── orcamento-service.js
-        │   └── variaveis-service.js
-        ├── atualizar-lista.js
-        ├── atualizar-variaveis.js
-        ├── dom-builder
-        │   ├── construir-lista.js
-        │   ├── construir-variaveis.js
-        │   ├── modal-editar.js
-        │   ├── modal-novo.js
-        │   ├── modal-variaveis.js
-        │   └── modal-visualizar.js
-        ├── main.js
-        ├── objetos
-        │   ├── lista-base.js
-        │   └── variaveis-base.js
-        └── utils
-            └── toggles.js
+        ├── app.js
+        ├── componentes
+        │   ├── lista-componente.js
+        │   ├── modal-editar.js
+        │   ├── modal-novo.js
+        │   ├── modal-variaveis.js
+        │   ├── modal-visualizar.js
+        │   └── variaveis-painel.js
+        ├── controladores
+        │   ├── lista-controlador.js
+        │   └── variaveis-controlador.js
+        ├── dados-iniciais
+        │   ├── orcamentos-iniciais.js
+        │   └── variaveis-iniciais.js
+        ├── regras
+        │   └── calculo-orcamento.js
+        ├── servicos
+        │   ├── orcamentos-servico.js
+        │   └── variaveis-servico.js
+        └── utilitarios
+            ├── formatadores.js
+            └── gerenciador-toggles.js
 ```

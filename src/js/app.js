@@ -2,31 +2,32 @@ import { atualizarInterfaceLista } from "./controladores/lista-controlador.js";
 import { atualizarInterfaceVariaveis } from "./controladores/variaveis-controlador.js"; 
 import { criarModalNovoOrcamento } from "./componentes/modal-novo.js";
 import { criarModalEditarVariaveis, lerDadosFormularioVariaveis } from "./componentes/modal-variaveis.js";
-import { criarModalVisualizar } from "./componentes/modal-visualizar.js";
-import ServicoOrcamentos from "./modelos/orcamento-modelo.js";
-import ServicoVariaveis from "./modelos/variaveis-modelo.js";
+import { criarModalVisualizarOrcamento } from "./componentes/modal-visualizar.js";
+import ServicoOrcamentos from "./servicos/orcamentos-servico.js";
+import ServicoVariaveis from "./servicos/variaveis-servico.js";
 import { inicializarInterruptores } from "./utilitarios/gerenciador-toggles.js";
 
-const containerRecentes = document.querySelector(".recentes");
-const containerVariaveis = document.querySelector('.painel-metricas');
+const containerListaOrcamentos = document.querySelector(".lista-orcamentos");
+const containerVariaveis = document.querySelector('.painel-variaveis');
 const inputPesquisa = document.querySelector('.barra-acoes__campo-pesquisa');
 const btnNovoOrcamento = document.querySelector('#btn-novo-orcamento');
 const btnEditVariaveisMobile = document.querySelector('.cabecalho-principal__btn-editar-mobile');
 const dialogGlobal = document.getElementById('dialog-global');
-const btnCarregarMais = document.querySelector('.lista-cards__btn-carregar-mais');
+const btnCarregarMais = document.querySelector('.secao-lista__btn-carregar-mais');
 
-let limiteAtual = 12;
+let limiteListaAtual = 12;
 
-function atualizarListaAtual() {
+function renderizarListaComEstadoAtual() {
   atualizarInterfaceLista({
     pesquisa: inputPesquisa.value,
-    limiteLista: limiteAtual,
-    container: containerRecentes
+    limiteLista: limiteListaAtual,
+    container: containerListaOrcamentos
   });
 }
 
 function gerenciarAberturaModalVariaveis() {
-  const formulario = criarModalEditarVariaveis();
+  const configuracoesAtuais = ServicoVariaveis.buscarConfiguracoes();
+  const formulario = criarModalEditarVariaveis(configuracoesAtuais);
   abrirModal(formulario);
 
   const btnFechar = formulario.querySelector('.modal__btn-fechar');
@@ -36,8 +37,8 @@ function gerenciarAberturaModalVariaveis() {
 
   formulario.addEventListener('submit', (e) => {
     e.preventDefault();
-    const novasVariaveis = lerDadosFormularioVariaveis(formulario);
-    ServicoVariaveis.salvarConfiguracoes(novasVariaveis);
+    const novasConfiguracoes = lerDadosFormularioVariaveis(formulario, configuracoesAtuais);
+    ServicoVariaveis.salvarConfiguracoes(novasConfiguracoes);
     atualizarInterfaceVariaveis(containerVariaveis);
     dialogGlobal.close();
   });
@@ -49,14 +50,14 @@ function abrirModal(conteudo) {
   dialogGlobal.showModal();
 }
 
-function gerenciarAberturaModalVisualizacao(bordado) {
-  const modal = criarModalVisualizar(bordado, {
+function abrirModalVisualizacaoOrcamento(orcamento) {
+  const modal = criarModalVisualizarOrcamento(orcamento, {
     onFechar: () => {
       dialogGlobal.close();
     },
     onExcluir: () => {
-      ServicoOrcamentos.excluir(bordado.id);
-      atualizarListaAtual();
+      ServicoOrcamentos.excluirPorId(orcamento.id);
+      renderizarListaComEstadoAtual();
       dialogGlobal.close();
     },
     onEditar: () => {
@@ -68,18 +69,18 @@ function gerenciarAberturaModalVisualizacao(bordado) {
 }
 
 // Inicialização
-atualizarListaAtual();
+renderizarListaComEstadoAtual();
 atualizarInterfaceVariaveis(containerVariaveis);
 
 // Eventos
 inputPesquisa.addEventListener('input' , () => {
-  limiteAtual = 12;
-  atualizarListaAtual();
+  limiteListaAtual = 12;
+  renderizarListaComEstadoAtual();
 });
 
 btnCarregarMais.addEventListener('click', () => {
-  limiteAtual += 12;
-  atualizarListaAtual();
+  limiteListaAtual += 12;
+  renderizarListaComEstadoAtual();
 });
 
 btnNovoOrcamento.addEventListener('click', () => {
@@ -97,19 +98,19 @@ btnNovoOrcamento.addEventListener('click', () => {
 containerVariaveis.addEventListener('click', gerenciarAberturaModalVariaveis);
 btnEditVariaveisMobile.addEventListener('click', gerenciarAberturaModalVariaveis);
 
-containerRecentes.addEventListener('click', (event) => {
+containerListaOrcamentos.addEventListener('click', (event) => {
   const cardOrcamento = event.target.closest('.card-orcamento');
 
-  if (!cardOrcamento || !containerRecentes.contains(cardOrcamento)) {
+  if (!cardOrcamento || !containerListaOrcamentos.contains(cardOrcamento)) {
     return;
   }
 
-  const idOrcamento = cardOrcamento.dataset.orcamentoId || cardOrcamento.id;
-  const bordado = ServicoOrcamentos.buscarPorId(idOrcamento);
+  const idOrcamento = cardOrcamento.dataset.orcamentoId;
+  const orcamento = ServicoOrcamentos.buscarPorId(idOrcamento);
 
-  if (!bordado) {
+  if (!orcamento) {
     return;
   }
 
-  gerenciarAberturaModalVisualizacao(bordado);
+  abrirModalVisualizacaoOrcamento(orcamento);
 });

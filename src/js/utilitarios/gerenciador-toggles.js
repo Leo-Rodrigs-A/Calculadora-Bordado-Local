@@ -3,14 +3,14 @@ export function inicializarInterruptores(container){
     const botoesToggle = container.querySelectorAll('.interruptor');
 
     botoesToggle.forEach(toggle => {
-        const key = toggle.dataset.key;
-        estadoInterruptores[key] = false;
+        const chaveInterruptor = toggle.dataset.key;
+        estadoInterruptores[chaveInterruptor] = false;
 
         toggle.classList.remove('interruptor--ativo');
 
         toggle.addEventListener('click', () =>{
-            const taAtivo = toggle.classList.toggle('interruptor--ativo');
-            estadoInterruptores[key] = taAtivo;
+            const estaAtivo = toggle.classList.toggle('interruptor--ativo');
+            estadoInterruptores[chaveInterruptor] = estaAtivo;
         })
     });
 

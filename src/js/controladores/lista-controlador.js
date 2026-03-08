@@ -1,5 +1,5 @@
 import { renderizarListaOrcamentos } from "../componentes/lista-componente.js";
-import ServicoOrcamentos from "../modelos/orcamento-modelo.js";
+import ServicoOrcamentos from "../servicos/orcamentos-servico.js";
 
 function normalizarTextoBusca(texto) {
   return texto
@@ -11,12 +11,12 @@ function normalizarTextoBusca(texto) {
 
 export function atualizarInterfaceLista ({pesquisa = '', limiteLista = 12, container}) {
     const termoBusca = normalizarTextoBusca(pesquisa);
-    const regex = new RegExp(`\\b${termoBusca}`, 'i');
+    const regexBusca = new RegExp(`\\b${termoBusca}`, 'i');
 
-    const listaLocal = ServicoOrcamentos.buscarTodos();
+    const orcamentos = ServicoOrcamentos.buscarTodos();
 
-    const listaFiltrada = listaLocal.filter(bordado => 
-        regex.test(normalizarTextoBusca(bordado.nomeProjeto))
+    const listaFiltrada = orcamentos.filter(orcamento => 
+        regexBusca.test(normalizarTextoBusca(orcamento.nomeProjeto))
     );
 
     const listaOrdenada = listaFiltrada.sort((a, b) => 
@@ -28,14 +28,14 @@ export function atualizarInterfaceLista ({pesquisa = '', limiteLista = 12, conta
     container.innerHTML = '';
 
     if (listaFiltrada.length === 0) {
-      const msgVazia = document.createElement('h6');
-      msgVazia.className = 'lista-cards__mensagem-vazia';
-      msgVazia.textContent = 'Nenhum Resultado Encontrado';
-      container.appendChild(msgVazia);
+      const mensagemSemResultados = document.createElement('h6');
+      mensagemSemResultados.className = 'lista-cards__mensagem-vazia';
+      mensagemSemResultados.textContent = 'Nenhum Resultado Encontrado';
+      container.appendChild(mensagemSemResultados);
       return;
     }
 
-    const btnCarregarMais = document.querySelector('.lista-cards__btn-carregar-mais');
+    const btnCarregarMais = document.querySelector('.secao-lista__btn-carregar-mais');
     if(btnCarregarMais && listaOrdenada.length > listaPaginada.length){
       btnCarregarMais.style.display = 'block';
     } else if (btnCarregarMais) {

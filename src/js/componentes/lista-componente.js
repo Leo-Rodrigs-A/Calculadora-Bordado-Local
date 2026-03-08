@@ -1,17 +1,13 @@
-export function renderizarListaOrcamentos(listaSliced, container){
+import { formatarDataExibicao, formatarMoeda } from '../utilitarios/formatadores.js';
+
+export function renderizarListaOrcamentos(listaPaginada, container){
   const listaCards = document.createElement('ul');
   listaCards.className = 'lista-cards';
 
-  function formatarDataExibicao(obj){
-    const [ano, mes, dia] = obj.split('-');
-    return `${dia}/${mes}/${ano}`;
-  }
-
-  listaSliced.forEach((bordado) => {
+  listaPaginada.forEach((orcamento) => {
     const cardOrcamento = document.createElement('li');
     cardOrcamento.className = 'card-orcamento u-tema-medio-padrao';
-    cardOrcamento.id = bordado.id;
-    cardOrcamento.dataset.orcamentoId = bordado.id;
+    cardOrcamento.dataset.orcamentoId = orcamento.id;
 
     const cabecalho = document.createElement('section');
     cabecalho.className = 'card-orcamento__cabecalho u-tema-escuro-padrao';
@@ -21,7 +17,7 @@ export function renderizarListaOrcamentos(listaSliced, container){
 
     const titulo = document.createElement('h6');
     titulo.className = 'card-orcamento__titulo';
-    titulo.innerText = bordado.nomeProjeto;
+    titulo.innerText = orcamento.nomeProjeto;
 
     const btnEditar = document.createElement('img');
     btnEditar.src = 'src/img/edit-icon.svg';
@@ -38,10 +34,10 @@ export function renderizarListaOrcamentos(listaSliced, container){
 
     const valorData = document.createElement('span');
     valorData.className = 'card-orcamento__valor card-orcamento__valor--destaque';
-    valorData.textContent = formatarDataExibicao(bordado.dataCriacao);
+    valorData.textContent = formatarDataExibicao(orcamento.dataCriacao);
 
-    const divisor1 = document.createElement('hr');
-    divisor1.className = 'card-orcamento__divisor';
+    const divisorDataPontos = document.createElement('hr');
+    divisorDataPontos.className = 'u-divisor-padrao';
 
     const linhaPontos = document.createElement('div');
     linhaPontos.className = 'card-orcamento__linha-info';
@@ -52,10 +48,10 @@ export function renderizarListaOrcamentos(listaSliced, container){
 
     const valorPontos = document.createElement('span');
     valorPontos.className = 'card-orcamento__valor card-orcamento__valor--destaque';
-    valorPontos.textContent = bordado.totalPontos.toLocaleString('pt-BR');
+    valorPontos.textContent = orcamento.totalPontos.toLocaleString('pt-BR');
 
-    const divisor2 = document.createElement('hr');
-    divisor2.className = 'card-orcamento__divisor';
+    const divisorPontosValor = document.createElement('hr');
+    divisorPontosValor.className = 'u-divisor-padrao';
 
     const linhaValor = document.createElement('div');
     linhaValor.className = 'card-orcamento__linha-info';
@@ -66,10 +62,7 @@ export function renderizarListaOrcamentos(listaSliced, container){
     
     const valorUnitario = document.createElement('span');
     valorUnitario.className = 'card-orcamento__valor--destaque';
-    valorUnitario.textContent = Number(bordado.orcamento).toLocaleString('PT-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    })
+    valorUnitario.textContent = formatarMoeda(orcamento.valorUnitario);
 
     cabecalho.appendChild(titulo);
     cabecalho.appendChild(btnEditar);
@@ -84,9 +77,9 @@ export function renderizarListaOrcamentos(listaSliced, container){
     linhaValor.appendChild(valorUnitario);
 
     corpo.appendChild(linhaData);
-    corpo.appendChild(divisor1);
+    corpo.appendChild(divisorDataPontos);
     corpo.appendChild(linhaPontos);
-    corpo.appendChild(divisor2);
+    corpo.appendChild(divisorPontosValor);
     corpo.appendChild(linhaValor);  
 
     cardOrcamento.appendChild(cabecalho);

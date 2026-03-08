@@ -1,4 +1,6 @@
-export function renderizarPainelMetricas(variaveis, caixaVariaveis) {
+import { formatarMoeda } from '../utilitarios/formatadores.js';
+
+export function renderizarPainelVariaveis(configuracoes, containerVariaveis) {
     const camposConfig = [
         {id: 'custoCriacaoMatriz', classe: 'u-tema-claro-padrao', texto: 'Criação da matriz'},
         {id: 'custoPorMilPontos', classe: 'u-tema-claro-padrao', texto: 'Valor por mil pontos'},
@@ -7,24 +9,21 @@ export function renderizarPainelMetricas(variaveis, caixaVariaveis) {
     ]
 
     camposConfig.forEach((config) => {
-        const cardMetrica = document.createElement('div');
-        cardMetrica.id = config.id;
-        cardMetrica.className = `painel-metricas__card ${config.classe}`;
+        const cardVariavel = document.createElement('div');
+        cardVariavel.id = config.id;
+        cardVariavel.className = `painel-variaveis__card ${config.classe}`;
 
         const titulo = document.createElement('h5');
-        titulo.className = 'painel-metricas__titulo u-tema-claro-alt';
+        titulo.className = 'painel-variaveis__titulo u-tema-claro-alt';
         titulo.textContent = config.texto;
 
         const valorExibicao = document.createElement('h6');
-        valorExibicao.textContent = variaveis[0][config.id].toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
-        });
+        valorExibicao.textContent = formatarMoeda(configuracoes[config.id]);
 
-        cardMetrica.appendChild(titulo);
-        cardMetrica.appendChild(valorExibicao);
-        caixaVariaveis.appendChild(cardMetrica);
+        cardVariavel.appendChild(titulo);
+        cardVariavel.appendChild(valorExibicao);
+        containerVariaveis.appendChild(cardVariavel);
     })
     
-    return caixaVariaveis;
+    return containerVariaveis;
 }

@@ -34,7 +34,7 @@ body{
     justify-content: center;
 }
 
-.painel-metricas{
+.painel-variaveis{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     justify-content: space-between;
@@ -44,7 +44,7 @@ body{
     border-radius: 24px;
 }
 
-.painel-metricas__card{
+.painel-variaveis__card{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -55,7 +55,7 @@ body{
     cursor: pointer;
 }
 
-.painel-metricas__titulo{
+.painel-variaveis__titulo{
     margin: 4px
 }
 

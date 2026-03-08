@@ -1,8 +1,8 @@
-import { renderizarPainelMetricas } from '../componentes/variaveis-painel.js'
-import ServicoVariaveis from '../modelos/variaveis-modelo.js'
+import { renderizarPainelVariaveis } from '../componentes/variaveis-painel.js'
+import ServicoVariaveis from '../servicos/variaveis-servico.js'
 
-export function atualizarInterfaceVariaveis(caixaVariaveis) {
-    const variaveisObj = ServicoVariaveis.buscarTodos();
-    caixaVariaveis.innerHTML = '';
-    renderizarPainelMetricas(variaveisObj, caixaVariaveis);
+export function atualizarInterfaceVariaveis(containerVariaveis) {
+    const configuracoes = ServicoVariaveis.buscarConfiguracoes();
+    containerVariaveis.innerHTML = '';
+    renderizarPainelVariaveis(configuracoes, containerVariaveis);
 }

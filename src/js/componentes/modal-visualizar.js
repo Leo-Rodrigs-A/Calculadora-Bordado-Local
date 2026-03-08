@@ -1,14 +1,4 @@
-function formatarDataExibicao(dataIso) {
-  const [ano, mes, dia] = dataIso.split('-');
-  return `${dia}/${mes}/${ano}`;
-}
-
-function formatarMoeda(valor) {
-  return Number(valor).toLocaleString('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  });
-}
+import { formatarDataExibicao, formatarMoeda } from '../utilitarios/formatadores.js';
 
 function criarTagDetalhe(rotulo, valor) {
   const item = document.createElement('div');
@@ -21,7 +11,7 @@ function criarTagDetalhe(rotulo, valor) {
   return item;
 }
 
-export function criarModalVisualizar(bordado, callbacks = {}) {
+export function criarModalVisualizarOrcamento(orcamento, callbacks = {}) {
   const {
     onFechar = () => {},
     onExcluir = () => {},
@@ -46,7 +36,7 @@ export function criarModalVisualizar(bordado, callbacks = {}) {
   cabecalho.className = 'modal__cabecalho u-tema-escuro-padrao';
 
   const titulo = document.createElement('h4');
-  titulo.textContent = bordado.nomeProjeto;
+  titulo.textContent = orcamento.nomeProjeto;
 
   const btnFechar = document.createElement('button');
   btnFechar.type = 'button';
@@ -68,15 +58,15 @@ export function criarModalVisualizar(bordado, callbacks = {}) {
 
   const subtitulo = document.createElement('p');
   subtitulo.className = 'modal__subtitulo-visualizacao';
-  subtitulo.textContent = `${bordado.totalPontos.toLocaleString('pt-BR')} pontos`;
+  subtitulo.textContent = `${orcamento.totalPontos.toLocaleString('pt-BR')} pontos`;
 
   const tags = document.createElement('div');
   tags.className = 'modal__tags-detalhes';
 
   const detalhes = [
-    { rotulo: 'Criar matriz', valor: bordado.precisaCriarMatriz ? 'Sim' : 'Nao' },
-    { rotulo: 'Material do cliente', valor: bordado.usaMaterialCliente ? 'Sim' : 'Nao' },
-    { rotulo: 'Urgente', valor: bordado.ehUrgente ? 'Sim' : 'Nao' }
+    { rotulo: 'Criar matriz', valor: orcamento.precisaCriarMatriz ? 'Sim' : 'Não' },
+    { rotulo: 'Material do cliente', valor: orcamento.usaMaterialCliente ? 'Sim' : 'Não' },
+    { rotulo: 'Urgente', valor: orcamento.ehUrgente ? 'Sim' : 'Não' }
   ];
 
   detalhes.forEach((detalhe) => {
@@ -97,16 +87,16 @@ export function criarModalVisualizar(bordado, callbacks = {}) {
 
   const dataCriacao = document.createElement('span');
   dataCriacao.className = 'modal__data-visualizacao';
-  dataCriacao.textContent = formatarDataExibicao(bordado.dataCriacao);
+  dataCriacao.textContent = formatarDataExibicao(orcamento.dataCriacao);
 
   linhaInfo.append(rotuloValor, dataCriacao);
 
   const valorDestaque = document.createElement('strong');
   valorDestaque.className = 'modal__valor-cobrar';
-  valorDestaque.textContent = formatarMoeda(bordado.orcamento);
+  valorDestaque.textContent = formatarMoeda(orcamento.valorUnitario);
 
   const divisor = document.createElement('hr');
-  divisor.className = 'card-orcamento__divisor';
+  divisor.className = 'u-divisor-padrao';
 
   destaque.append(linhaInfo, valorDestaque, divisor);
 
@@ -117,7 +107,7 @@ export function criarModalVisualizar(bordado, callbacks = {}) {
   const grade = document.createElement('div');
   grade.className = 'modal__grade-valores';
 
-  bordado.valores.forEach((valor, index) => {
+  orcamento.valoresPorQuantidade.forEach((valorQuantidade, index) => {
     const cardValor = document.createElement('article');
     const classeTema = index === 0 ? 'u-tema-destaque' : 'u-tema-claro-padrao';
     cardValor.className = `modal__card-valor ${classeTema}`;
@@ -128,7 +118,7 @@ export function criarModalVisualizar(bordado, callbacks = {}) {
 
     const preco = document.createElement('strong');
     preco.className = 'modal__card-preco';
-    preco.textContent = formatarMoeda(valor);
+    preco.textContent = formatarMoeda(valorQuantidade);
 
     cardValor.append(quantidade, preco);
     grade.appendChild(cardValor);
