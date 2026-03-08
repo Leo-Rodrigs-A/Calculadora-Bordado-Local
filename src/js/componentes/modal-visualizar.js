@@ -95,20 +95,24 @@ export function criarModalVisualizarOrcamento(orcamento, callbacks = {}) {
   grade.className = 'modal__grade-valores';
 
   orcamento.valoresPorQuantidade.forEach((valorQuantidade, index) => {
-    const cardValor = document.createElement('article');
-    const classeTema = index === 0 ? 'u-tema-destaque' : 'u-tema-claro-padrao';
-    cardValor.className = `modal__card-valor ${classeTema}`;
+    const itemValor = document.createElement('div');
+    itemValor.className = 'modal__item-valor';
 
     const quantidade = document.createElement('span');
     quantidade.className = 'modal__card-quantidade';
     quantidade.textContent = labelsQuantidade[index] || `+${index + 1} und`;
 
+    const cardValor = document.createElement('article');
+    const classeTema = index === 0 ? 'u-tema-destaque' : 'u-tema-claro-padrao';
+    cardValor.className = `modal__card-valor ${classeTema}`;
+
     const preco = document.createElement('strong');
     preco.className = 'modal__card-preco';
     preco.textContent = formatarMoeda(valorQuantidade);
 
-    cardValor.append(quantidade, preco);
-    grade.appendChild(cardValor);
+    cardValor.appendChild(preco);
+    itemValor.append(quantidade, cardValor);
+    grade.appendChild(itemValor);
   });
 
   const rodape = document.createElement('div');
@@ -116,7 +120,7 @@ export function criarModalVisualizarOrcamento(orcamento, callbacks = {}) {
 
   const btnExcluir = document.createElement('button');
   btnExcluir.type = 'button';
-  btnExcluir.className = 'modal__btn-acao modal__btn-acao--outline';
+  btnExcluir.className = 'modal__btn-acao modal__btn-acao--outline u-tema-claro-padrao';
   btnExcluir.textContent = 'Excluir';
   btnExcluir.addEventListener('click', onExcluir);
 

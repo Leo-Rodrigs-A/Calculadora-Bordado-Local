@@ -232,8 +232,15 @@
 
 .modal__grade-valores{
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 12px;
+}
+
+.modal__item-valor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
 }
 
 .modal__card-valor{
@@ -242,8 +249,9 @@
     gap: 4px;
     border: solid 1px;
     border-radius: 16px;
-    padding: 12px;
-    text-align: center;
+    padding: 6px 12px;
+    width: 100%;
+    align-items: center;
 }
 
 .modal__card-quantidade{
@@ -256,15 +264,17 @@
 }
 
 .modal__acoes-visualizacao{
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
+    justify-content: flex-end;
     gap: 12px;
+    flex-wrap: wrap;
 }
 
 .modal__btn-acao{
-    border-radius: 16px;
+    width: fit-content;
+    border-radius: 12px;
     border: solid 2px var(--marrom);
-    padding: 10px 16px;
+    padding: 6px 32px;
     font-weight: 700;
     cursor: pointer;
     transition: 0.3s;
@@ -277,6 +287,7 @@
 
 .modal__btn-acao--solid{
     border-color: var(--bege-claro);
+    color: var(--bege-claro);
 }
 
 .modal__btn-acao:hover{
