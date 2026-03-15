@@ -1,16 +1,5 @@
 import { formatarDataExibicao, formatarMoeda } from '../utilitarios/formatadores.js';
-import { quantidadesPadrao } from '../dados-iniciais/quantidades-padrao.js';
-
-function criarTagDetalhe(rotulo, valor) {
-  const item = document.createElement('div');
-  item.className = 'modal__tag-detalhe u-tema-claro-padrao';
-
-  const texto = document.createElement('span');
-  texto.textContent = `${rotulo}: ${valor}`;
-
-  item.appendChild(texto);
-  return item;
-}
+import { criarExibicaoValores } from './exibicao-valores.js';
 
 export function criarModalVisualizarOrcamento(orcamento, callbacks = {}) {
   const {
@@ -18,8 +7,6 @@ export function criarModalVisualizarOrcamento(orcamento, callbacks = {}) {
     onExcluir = () => {},
     onEditar = () => {}
   } = callbacks;
-
-  const labelsQuantidade = quantidadesPadrao
 
   const container = document.createElement('section');
   container.className = 'modal__visualizacao';
@@ -87,33 +74,7 @@ export function criarModalVisualizarOrcamento(orcamento, callbacks = {}) {
 
   destaque.append(linhaRotulos, linhaValores, divisor);
 
-  const tituloGrade = document.createElement('h5');
-  tituloGrade.className = 'modal__titulo-grade';
-  tituloGrade.textContent = 'Valores base';
-
-  const grade = document.createElement('div');
-  grade.className = 'modal__grade-valores';
-
-  orcamento.valoresPorQuantidade.forEach((valorQuantidade, index) => {
-    const itemValor = document.createElement('div');
-    itemValor.className = 'modal__item-valor';
-
-    const quantidade = document.createElement('span');
-    quantidade.className = 'modal__card-quantidade';
-    quantidade.textContent = labelsQuantidade[index] || `+${index + 1} und`;
-
-    const cardValor = document.createElement('article');
-    const classeTema = index === 0 ? 'u-tema-destaque' : 'u-tema-claro-padrao';
-    cardValor.className = `modal__card-valor ${classeTema}`;
-
-    const preco = document.createElement('strong');
-    preco.className = 'modal__card-preco';
-    preco.textContent = formatarMoeda(valorQuantidade);
-
-    cardValor.appendChild(preco);
-    itemValor.append(quantidade, cardValor);
-    grade.appendChild(itemValor);
-  });
+  const exibicaoValores = criarExibicaoValores(orcamento.valoresPorQuantidade);
 
   const rodape = document.createElement('div');
   rodape.className = 'modal__acoes-visualizacao';
@@ -131,7 +92,7 @@ export function criarModalVisualizarOrcamento(orcamento, callbacks = {}) {
   btnEditar.addEventListener('click', onEditar);
 
   rodape.append(btnExcluir, btnEditar);
-  corpo.append(destaque, tituloGrade, grade, rodape);
+  corpo.append(destaque, exibicaoValores, rodape);
   container.append(cabecalho, corpo);
 
   return container;

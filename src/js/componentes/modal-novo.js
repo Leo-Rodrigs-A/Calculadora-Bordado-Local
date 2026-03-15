@@ -1,3 +1,5 @@
+import { criarExibicaoValores } from './exibicao-valores.js';
+
 export function criarModalNovoOrcamento(){
     const formulario = document.createElement('form');
     formulario.method = 'dialog';
@@ -100,7 +102,11 @@ export function criarModalNovoOrcamento(){
     const btnCalcular = document.createElement('button');
     btnCalcular.className = 'modal__btn-calcular u-tema-medio-padrao';
     btnCalcular.id = 'btn-acao-calcular';
+    btnCalcular.type = 'button';
     btnCalcular.textContent = 'Calcular valores';
+
+    const containerResultados = document.createElement('section');
+    containerResultados.className = 'modal__resultado-calculo';
 
     const btnSalvar = document.createElement('button');
     btnSalvar.className = 'modal__btn-salvar';
@@ -108,8 +114,26 @@ export function criarModalNovoOrcamento(){
     btnSalvar.type = 'submit';
     btnSalvar.textContent = 'Salvar Orçamento';
 
-    corpo.append(grupoNome, linhaDupla, grupoInterruptores, btnCalcular, btnSalvar);
+    corpo.append(grupoNome, linhaDupla, grupoInterruptores, btnCalcular, containerResultados, btnSalvar);
     formulario.append(cabecalho, corpo);
 
     return formulario;
+}
+
+export function atualizarModalNovoOrcamento(formulario, valoresPorQuantidade) {
+    const containerResultados = formulario.querySelector('.modal__resultado-calculo');
+    if (containerResultados) {
+        const exibicao = criarExibicaoValores(valoresPorQuantidade);
+        containerResultados.replaceChildren(exibicao);
+    }
+
+    const btnCalcular = formulario.querySelector('#btn-acao-calcular');
+    if (btnCalcular) {
+        btnCalcular.textContent = 'Recalcular';
+    }
+
+    const btnSalvar = formulario.querySelector('#btn-acao-salvar');
+    if (btnSalvar) {
+        btnSalvar.style.display = 'inline-flex';
+    }
 }

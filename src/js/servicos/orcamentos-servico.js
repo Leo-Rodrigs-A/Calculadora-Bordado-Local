@@ -3,6 +3,7 @@ import { orcamentosIniciais } from '../dados-iniciais/orcamentos-iniciais.js';
 function normalizarOrcamentoSalvo(orcamentoSalvo) {
   return {
     ...orcamentoSalvo,
+    quantidade: Number(orcamentoSalvo.quantidade ?? 1),
     valoresPorQuantidade: (orcamentoSalvo.valoresPorQuantidade ?? orcamentoSalvo.valores ?? []).map(Number),
     valorUnitario: Number(orcamentoSalvo.valorUnitario ?? orcamentoSalvo.orcamento)
   };
@@ -19,8 +20,9 @@ const ServicoOrcamentos = {
       return orcamentosNormalizados;
     }
 
-    this._salvar(orcamentosIniciais);
-    return orcamentosIniciais;
+    const orcamentosNormalizados = orcamentosIniciais.map(normalizarOrcamentoSalvo);
+    this._salvar(orcamentosNormalizados);
+    return orcamentosNormalizados;
   },
 
   _salvar(lista) {
@@ -38,6 +40,23 @@ const ServicoOrcamentos = {
   salvarNovo(orcamento) {
     const lista = this._carregar();
     lista.unshift(orcamento);
+    this._salvar(lista);
+  },
+
+  atualizarPorId(id, dadosAtualizados) {
+    const lista = this._carregar();
+    const indice = lista.findIndex(orcamento => orcamento.id === id);
+    if (indice === -1) {
+      return;
+    }
+
+    lista[indice] = {
+      ...lista[indice],
+      ...dadosAtualizados,
+      id: lista[indice].id,
+      dataCriacao: lista[indice].dataCriacao
+    };
+
     this._salvar(lista);
   },
 

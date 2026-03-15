@@ -1,8 +1,9 @@
-import { atualizarInterfaceLista } from "./controladores/lista-controlador.js";
+import { atualizarInterfaceLista, vincularAcoesModalOrcamento } from "./controladores/lista-controlador.js";
 import { atualizarInterfaceVariaveis } from "./controladores/variaveis-controlador.js"; 
 import { criarModalNovoOrcamento } from "./componentes/modal-novo.js";
 import { criarModalEditarVariaveis, lerDadosFormularioVariaveis } from "./componentes/modal-variaveis.js";
 import { criarModalVisualizarOrcamento } from "./componentes/modal-visualizar.js";
+import { criarModalEditarOrcamento } from "./componentes/modal-editar.js";
 import ServicoOrcamentos from "./servicos/orcamentos-servico.js";
 import ServicoVariaveis from "./servicos/variaveis-servico.js";
 import { inicializarInterruptores } from "./utilitarios/gerenciador-toggles.js";
@@ -50,6 +51,50 @@ function abrirModal(conteudo) {
   dialogGlobal.showModal();
 }
 
+function aplicarEstadoInicialInterruptores(formulario, estadoInterruptores, orcamento) {
+  const mapaEstado = {
+    'modal__interruptores-criar-matriz': orcamento.precisaCriarMatriz,
+    'modal__interruptores-material-cliente': orcamento.usaMaterialCliente,
+    'modal__interruptores-urgente': orcamento.ehUrgente
+  };
+
+  Object.entries(mapaEstado).forEach(([chave, ativo]) => {
+    if (!ativo) {
+      return;
+    }
+
+    const toggle = formulario.querySelector(`.interruptor[data-key="${chave}"]`);
+    if (toggle) {
+      toggle.classList.add('interruptor--ativo');
+      estadoInterruptores[chave] = true;
+    }
+  });
+}
+
+function abrirModalEdicaoOrcamento(orcamento) {
+  const formulario = criarModalEditarOrcamento(orcamento);
+  abrirModal(formulario);
+
+  const btnFechar = formulario.querySelector('.modal__btn-fechar');
+  btnFechar.addEventListener('click', () => {
+    dialogGlobal.close();
+  });
+
+  const estadoInterruptores = inicializarInterruptores(formulario);
+  aplicarEstadoInicialInterruptores(formulario, estadoInterruptores, orcamento);
+
+  vincularAcoesModalOrcamento({
+    formulario,
+    estadoInterruptores,
+    modo: 'editar',
+    orcamentoBase: orcamento,
+    onSalvar: () => {
+      renderizarListaComEstadoAtual();
+      dialogGlobal.close();
+    }
+  });
+}
+
 function abrirModalVisualizacaoOrcamento(orcamento) {
   const modal = criarModalVisualizarOrcamento(orcamento, {
     onFechar: () => {
@@ -62,6 +107,7 @@ function abrirModalVisualizacaoOrcamento(orcamento) {
     },
     onEditar: () => {
       dialogGlobal.close();
+      abrirModalEdicaoOrcamento(orcamento);
     }
   });
 
@@ -94,7 +140,16 @@ btnNovoOrcamento.addEventListener('click', () => {
     dialogGlobal.close();
   });
 
-  inicializarInterruptores(formulario);
+  const estadoInterruptores = inicializarInterruptores(formulario);
+  vincularAcoesModalOrcamento({
+    formulario,
+    estadoInterruptores,
+    modo: 'novo',
+    onSalvar: () => {
+      renderizarListaComEstadoAtual();
+      dialogGlobal.close();
+    }
+  });
 });
 
 containerVariaveis.addEventListener('click', gerenciarAberturaModalVariaveis);
