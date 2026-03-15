@@ -68,6 +68,8 @@ function abrirModalVisualizacaoOrcamento(orcamento) {
   abrirModal(modal);
 }
 
+console.log(containerVariaveis);
+
 // Inicialização
 renderizarListaComEstadoAtual();
 atualizarInterfaceVariaveis(containerVariaveis);
