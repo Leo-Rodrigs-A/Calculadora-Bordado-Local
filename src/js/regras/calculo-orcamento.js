@@ -4,7 +4,7 @@ export default function calcularOrcamento(dadosNovoBordado, variaveisComQuantida
   const quantidadesPadrao = variaveisComQuantidadesPadrao.quantidadesPadrao;
   const valorMinimoGeral = variaveisComQuantidadesPadrao.valorMinimoGeral;
   const valorminimoPraUm = variaveisComQuantidadesPadrao.valorminimoPraUm;
-  const valorCraicaoMatriz = variaveisComQuantidadesPadrao.valorCriacaoMatriz;
+  const valorCriacaoMatriz = variaveisComQuantidadesPadrao.valorCriacaoMatriz;
   const valorPorMilPontos = variaveisComQuantidadesPadrao.valorPorMilPontos;
 
   // enviadas pelo cliente
@@ -34,7 +34,7 @@ export default function calcularOrcamento(dadosNovoBordado, variaveisComQuantida
       }
 
       if (precisaCriarMatriz) {
-        valorBase += valorCraicaoMatriz;
+        valorBase += (valorCriacaoMatriz/quantidadeBordados);
       }
 
       if (usaMaterialCliente) {
