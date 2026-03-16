@@ -1,4 +1,3 @@
-import { formatarDataExibicao } from '../utilitarios/formatadores.js';
 import { criarExibicaoValores } from './exibicao-valores.js';
 
 export function criarModalVisualizarOrcamento(orcamento, callbacks = {}) {
@@ -40,25 +39,11 @@ export function criarModalVisualizarOrcamento(orcamento, callbacks = {}) {
   const corpo = document.createElement('div');
   corpo.className = 'modal__corpo modal__corpo--visualizacao';
 
-  const linhaRotulos = document.createElement('div');
-  linhaRotulos.className = 'modal__linha-info-visualizacao';
-
-  const rotuloDataCriacao = document.createElement('span');
-  rotuloDataCriacao.className = 'modal__rotulo-visualizacao';
-  rotuloDataCriacao.textContent = 'Criado em:';
-
-  linhaRotulos.append(rotuloDataCriacao);
-
-  const linhaValores = document.createElement('div');
-  linhaValores.className = 'modal__linha-info-visualizacao';
-
-  const dataCriacao = document.createElement('span');
-  dataCriacao.className = 'modal__data-visualizacao';
-  dataCriacao.textContent = formatarDataExibicao(orcamento.dataCriacao);
-
-  linhaValores.append(dataCriacao);
-
-  const exibicaoValores = criarExibicaoValores(orcamento.valoresPorQuantidade, orcamento.quantidade);
+  const exibicaoValores = criarExibicaoValores(
+    orcamento.valoresPorQuantidade,
+    orcamento.quantidade,
+    orcamento.dataCriacao
+  );
 
   const rodape = document.createElement('div');
   rodape.className = 'modal__acoes-visualizacao';
@@ -66,17 +51,17 @@ export function criarModalVisualizarOrcamento(orcamento, callbacks = {}) {
   const btnExcluir = document.createElement('button');
   btnExcluir.type = 'button';
   btnExcluir.className = 'modal__btn-acao modal__btn-acao--outline u-tema-claro-padrao';
-  btnExcluir.textContent = 'Excluir';
+  btnExcluir.textContent = 'Excluir Orçamento';
   btnExcluir.addEventListener('click', onExcluir);
 
   const btnEditar = document.createElement('button');
   btnEditar.type = 'button';
   btnEditar.className = 'modal__btn-acao modal__btn-acao--solid u-tema-destaque';
-  btnEditar.textContent = 'Editar';
+  btnEditar.textContent = 'Editar Orçamento';
   btnEditar.addEventListener('click', onEditar);
 
   rodape.append(btnExcluir, btnEditar);
-  corpo.append(linhaRotulos, linhaValores, exibicaoValores, rodape);
+  corpo.append(exibicaoValores, rodape);
   container.append(cabecalho, corpo);
 
   return container;

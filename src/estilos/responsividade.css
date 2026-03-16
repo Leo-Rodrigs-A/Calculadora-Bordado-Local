@@ -69,8 +69,23 @@
     }
 
     .modal__acoes-visualizacao{
-        flex-direction: column;
+        flex-direction: row;
         align-items: stretch;
+        width: 100%;
+    }
+
+    .modal__acoes,
+    .modal__acoes-visualizacao{
+        width: 100%;
+    }
+
+    .modal__acoes .modal__btn-calcular,
+    .modal__acoes .modal__btn-salvar,
+    .modal__acoes-visualizacao .modal__btn-acao{
+        flex: 1;
+        min-width: 0;
+        text-align: center;
+        white-space: normal;
     }
 
     .modal__valor-cobrar{

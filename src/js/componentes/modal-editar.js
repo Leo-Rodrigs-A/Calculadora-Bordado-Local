@@ -21,6 +21,7 @@ function criarGrupoEntrada({ classe, idInput, rotulo, placeholder, valorAtual })
 export function criarModalEditarOrcamento(orcamento) {
   const formulario = document.createElement('form');
   formulario.method = 'dialog';
+  formulario.dataset.dataCriacao = orcamento.dataCriacao ?? '';
 
   const cabecalho = document.createElement('div');
   cabecalho.className = 'modal__cabecalho u-tema-escuro-padrao';
@@ -112,22 +113,31 @@ export function criarModalEditarOrcamento(orcamento) {
   btnCalcular.className = 'modal__btn-calcular u-tema-medio-padrao';
   btnCalcular.id = 'btn-acao-calcular';
   btnCalcular.type = 'button';
-  btnCalcular.textContent = 'Recalcular';
+  btnCalcular.textContent = 'Recalcular Valores';
 
   const containerResultados = document.createElement('section');
   containerResultados.className = 'modal__resultado-calculo';
   if (orcamento.valoresPorQuantidade?.length) {
-    containerResultados.appendChild(criarExibicaoValores(orcamento.valoresPorQuantidade, orcamento.quantidade));
+    containerResultados.appendChild(
+      criarExibicaoValores(orcamento.valoresPorQuantidade, orcamento.quantidade, orcamento.dataCriacao)
+    );
   }
+
+  const divisorAcoes = document.createElement('hr');
+  divisorAcoes.className = 'u-divisor-padrao';
+
+  const containerAcoes = document.createElement('div');
+  containerAcoes.className = 'modal__acoes';
 
   const btnSalvar = document.createElement('button');
   btnSalvar.className = 'modal__btn-salvar';
   btnSalvar.id = 'btn-acao-salvar';
   btnSalvar.type = 'submit';
-  btnSalvar.textContent = 'Salvar Alterações';
+  btnSalvar.textContent = 'Salvar Orçamento';
   btnSalvar.style.display = 'inline-flex';
 
-  corpo.append(grupoNome, linhaDupla, grupoInterruptores, containerResultados, btnCalcular, btnSalvar);
+  containerAcoes.append(btnCalcular, btnSalvar);
+  corpo.append(grupoNome, linhaDupla, grupoInterruptores, containerResultados, divisorAcoes, containerAcoes);
   formulario.append(cabecalho, corpo);
 
   return formulario;
@@ -138,7 +148,8 @@ export function atualizarModalEditarOrcamento(formulario, valoresPorQuantidade) 
   if (containerResultados) {
     const inputQuantidade = formulario.querySelector('#input-qtd-bordados');
     const quantidadeSelecionada = inputQuantidade ? Number(inputQuantidade.value) : 0;
-    const exibicao = criarExibicaoValores(valoresPorQuantidade, quantidadeSelecionada);
+    const dataCriacao = formulario.dataset.dataCriacao || null;
+    const exibicao = criarExibicaoValores(valoresPorQuantidade, quantidadeSelecionada, dataCriacao);
     containerResultados.replaceChildren(exibicao);
   }
 }

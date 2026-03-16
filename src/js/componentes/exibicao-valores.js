@@ -1,4 +1,4 @@
-import { formatarMoeda } from '../utilitarios/formatadores.js';
+import { formatarDataExibicao, formatarMoeda } from '../utilitarios/formatadores.js';
 import { quantidadesPadrao } from '../dados-iniciais/quantidades-padrao.js';
 
 function obterIndiceDestaque(quantidadeSelecionada) {
@@ -17,7 +17,7 @@ function obterIndiceDestaque(quantidadeSelecionada) {
   return indiceDestaque;
 }
 
-export function criarExibicaoValores(valoresPorQuantidade, quantidadeSelecionada) {
+export function criarExibicaoValores(valoresPorQuantidade, quantidadeSelecionada, dataCriacao = null) {
   const labelsQuantidade = quantidadesPadrao;
   const fragment = document.createDocumentFragment();
   const indiceDestaque = obterIndiceDestaque(quantidadeSelecionada);
@@ -34,6 +34,22 @@ export function criarExibicaoValores(valoresPorQuantidade, quantidadeSelecionada
   rotuloValor.textContent = 'Valor a cobrar pelo bordado';
 
   linhaRotulo.append(rotuloValor);
+
+  if (dataCriacao) {
+    const containerData = document.createElement('div');
+    containerData.className = 'modal__bloco-data';
+
+    const rotuloData = document.createElement('span');
+    rotuloData.className = 'modal__rotulo-data';
+    rotuloData.textContent = 'Criado em:';
+
+    const dataExibicao = document.createElement('span');
+    dataExibicao.className = 'modal__data-visualizacao';
+    dataExibicao.textContent = formatarDataExibicao(dataCriacao);
+
+    containerData.append(rotuloData, dataExibicao);
+    linhaRotulo.append(containerData);
+  }
 
   const linhaValor = document.createElement('div');
   linhaValor.className = 'modal__linha-info-visualizacao';

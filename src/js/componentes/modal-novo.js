@@ -108,13 +108,20 @@ export function criarModalNovoOrcamento(){
     const containerResultados = document.createElement('section');
     containerResultados.className = 'modal__resultado-calculo';
 
+    const divisorAcoes = document.createElement('hr');
+    divisorAcoes.className = 'u-divisor-padrao';
+
+    const containerAcoes = document.createElement('div');
+    containerAcoes.className = 'modal__acoes';
+
     const btnSalvar = document.createElement('button');
     btnSalvar.className = 'modal__btn-salvar';
     btnSalvar.id = 'btn-acao-salvar';
     btnSalvar.type = 'submit';
     btnSalvar.textContent = 'Salvar Orçamento';
 
-    corpo.append(grupoNome, linhaDupla, grupoInterruptores, containerResultados, btnCalcular, btnSalvar);
+    containerAcoes.append(btnCalcular, btnSalvar);
+    corpo.append(grupoNome, linhaDupla, grupoInterruptores, containerResultados, divisorAcoes, containerAcoes);
     formulario.append(cabecalho, corpo);
 
     return formulario;
@@ -131,7 +138,7 @@ export function atualizarModalNovoOrcamento(formulario, valoresPorQuantidade) {
 
     const btnCalcular = formulario.querySelector('#btn-acao-calcular');
     if (btnCalcular) {
-        btnCalcular.textContent = 'Recalcular';
+        btnCalcular.textContent = 'Recalcular Valores';
     }
 
     const btnSalvar = formulario.querySelector('#btn-acao-salvar');
