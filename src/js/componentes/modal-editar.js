@@ -117,7 +117,7 @@ export function criarModalEditarOrcamento(orcamento) {
   const containerResultados = document.createElement('section');
   containerResultados.className = 'modal__resultado-calculo';
   if (orcamento.valoresPorQuantidade?.length) {
-    containerResultados.appendChild(criarExibicaoValores(orcamento.valoresPorQuantidade));
+    containerResultados.appendChild(criarExibicaoValores(orcamento.valoresPorQuantidade, orcamento.quantidade));
   }
 
   const btnSalvar = document.createElement('button');
@@ -127,7 +127,7 @@ export function criarModalEditarOrcamento(orcamento) {
   btnSalvar.textContent = 'Salvar Alterações';
   btnSalvar.style.display = 'inline-flex';
 
-  corpo.append(grupoNome, linhaDupla, grupoInterruptores, btnCalcular, containerResultados, btnSalvar);
+  corpo.append(grupoNome, linhaDupla, grupoInterruptores, containerResultados, btnCalcular, btnSalvar);
   formulario.append(cabecalho, corpo);
 
   return formulario;
@@ -136,7 +136,9 @@ export function criarModalEditarOrcamento(orcamento) {
 export function atualizarModalEditarOrcamento(formulario, valoresPorQuantidade) {
   const containerResultados = formulario.querySelector('.modal__resultado-calculo');
   if (containerResultados) {
-    const exibicao = criarExibicaoValores(valoresPorQuantidade);
+    const inputQuantidade = formulario.querySelector('#input-qtd-bordados');
+    const quantidadeSelecionada = inputQuantidade ? Number(inputQuantidade.value) : 0;
+    const exibicao = criarExibicaoValores(valoresPorQuantidade, quantidadeSelecionada);
     containerResultados.replaceChildren(exibicao);
   }
 }

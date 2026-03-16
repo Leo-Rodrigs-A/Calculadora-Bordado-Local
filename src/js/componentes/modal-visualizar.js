@@ -1,4 +1,4 @@
-import { formatarDataExibicao, formatarMoeda } from '../utilitarios/formatadores.js';
+import { formatarDataExibicao } from '../utilitarios/formatadores.js';
 import { criarExibicaoValores } from './exibicao-valores.js';
 
 export function criarModalVisualizarOrcamento(orcamento, callbacks = {}) {
@@ -40,41 +40,25 @@ export function criarModalVisualizarOrcamento(orcamento, callbacks = {}) {
   const corpo = document.createElement('div');
   corpo.className = 'modal__corpo modal__corpo--visualizacao';
 
-  const destaque = document.createElement('section');
-  destaque.className = 'modal__destaque-valor';
-
   const linhaRotulos = document.createElement('div');
   linhaRotulos.className = 'modal__linha-info-visualizacao';
-
-  const rotuloValor = document.createElement('span');
-  rotuloValor.className = 'modal__rotulo-visualizacao';
-  rotuloValor.textContent = 'Valor a cobrar pelo bordado';
 
   const rotuloDataCriacao = document.createElement('span');
   rotuloDataCriacao.className = 'modal__rotulo-visualizacao';
   rotuloDataCriacao.textContent = 'Criado em:';
 
-  linhaRotulos.append(rotuloValor, rotuloDataCriacao);
+  linhaRotulos.append(rotuloDataCriacao);
 
   const linhaValores = document.createElement('div');
   linhaValores.className = 'modal__linha-info-visualizacao';
-
-  const valorDestaque = document.createElement('strong');
-  valorDestaque.className = 'modal__valor-cobrar';
-  valorDestaque.textContent = formatarMoeda(orcamento.valorUnitario);
 
   const dataCriacao = document.createElement('span');
   dataCriacao.className = 'modal__data-visualizacao';
   dataCriacao.textContent = formatarDataExibicao(orcamento.dataCriacao);
 
-  linhaValores.append(valorDestaque, dataCriacao);
+  linhaValores.append(dataCriacao);
 
-  const divisor = document.createElement('hr');
-  divisor.className = 'u-divisor-padrao';
-
-  destaque.append(linhaRotulos, linhaValores, divisor);
-
-  const exibicaoValores = criarExibicaoValores(orcamento.valoresPorQuantidade);
+  const exibicaoValores = criarExibicaoValores(orcamento.valoresPorQuantidade, orcamento.quantidade);
 
   const rodape = document.createElement('div');
   rodape.className = 'modal__acoes-visualizacao';
@@ -92,7 +76,7 @@ export function criarModalVisualizarOrcamento(orcamento, callbacks = {}) {
   btnEditar.addEventListener('click', onEditar);
 
   rodape.append(btnExcluir, btnEditar);
-  corpo.append(destaque, exibicaoValores, rodape);
+  corpo.append(linhaRotulos, linhaValores, exibicaoValores, rodape);
   container.append(cabecalho, corpo);
 
   return container;

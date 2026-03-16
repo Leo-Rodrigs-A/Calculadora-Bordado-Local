@@ -1,9 +1,53 @@
 import { formatarMoeda } from '../utilitarios/formatadores.js';
 import { quantidadesPadrao } from '../dados-iniciais/quantidades-padrao.js';
 
-export function criarExibicaoValores(valoresPorQuantidade) {
+function obterIndiceDestaque(quantidadeSelecionada) {
+  const quantidadeNormalizada = Number(quantidadeSelecionada);
+  if (!Number.isFinite(quantidadeNormalizada) || quantidadeNormalizada <= 0) {
+    return 0;
+  }
+
+  let indiceDestaque = 0;
+  quantidadesPadrao.forEach((quantidade, index) => {
+    if (quantidadeNormalizada >= quantidade) {
+      indiceDestaque = index;
+    }
+  });
+
+  return indiceDestaque;
+}
+
+export function criarExibicaoValores(valoresPorQuantidade, quantidadeSelecionada) {
   const labelsQuantidade = quantidadesPadrao;
   const fragment = document.createDocumentFragment();
+  const indiceDestaque = obterIndiceDestaque(quantidadeSelecionada);
+  const valorDestaque = valoresPorQuantidade[indiceDestaque] ?? valoresPorQuantidade[0] ?? 0;
+
+  const destaque = document.createElement('section');
+  destaque.className = 'modal__destaque-valor';
+
+  const linhaRotulo = document.createElement('div');
+  linhaRotulo.className = 'modal__linha-info-visualizacao';
+
+  const rotuloValor = document.createElement('span');
+  rotuloValor.className = 'modal__rotulo-visualizacao';
+  rotuloValor.textContent = 'Valor a cobrar pelo bordado';
+
+  linhaRotulo.append(rotuloValor);
+
+  const linhaValor = document.createElement('div');
+  linhaValor.className = 'modal__linha-info-visualizacao';
+
+  const valorPrincipal = document.createElement('strong');
+  valorPrincipal.className = 'modal__valor-cobrar';
+  valorPrincipal.textContent = formatarMoeda(valorDestaque);
+
+  linhaValor.append(valorPrincipal);
+
+  const divisor = document.createElement('hr');
+  divisor.className = 'u-divisor-padrao';
+
+  destaque.append(linhaRotulo, linhaValor, divisor);
 
   const tituloGrade = document.createElement('h5');
   tituloGrade.className = 'modal__titulo-grade';
@@ -25,7 +69,7 @@ export function criarExibicaoValores(valoresPorQuantidade) {
     }
 
     const cardValor = document.createElement('article');
-    const classeTema = index === 0 ? 'u-tema-destaque' : 'u-tema-claro-padrao';
+    const classeTema = index === indiceDestaque ? 'u-tema-destaque' : 'u-tema-claro-padrao';
     cardValor.className = `modal__card-valor ${classeTema}`;
 
     const preco = document.createElement('strong');
@@ -37,6 +81,6 @@ export function criarExibicaoValores(valoresPorQuantidade) {
     grade.appendChild(itemValor);
   });
 
-  fragment.append(tituloGrade, grade);
+  fragment.append(destaque, tituloGrade, grade);
   return fragment;
 }

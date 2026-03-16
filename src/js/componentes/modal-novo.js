@@ -114,7 +114,7 @@ export function criarModalNovoOrcamento(){
     btnSalvar.type = 'submit';
     btnSalvar.textContent = 'Salvar Orçamento';
 
-    corpo.append(grupoNome, linhaDupla, grupoInterruptores, btnCalcular, containerResultados, btnSalvar);
+    corpo.append(grupoNome, linhaDupla, grupoInterruptores, containerResultados, btnCalcular, btnSalvar);
     formulario.append(cabecalho, corpo);
 
     return formulario;
@@ -123,7 +123,9 @@ export function criarModalNovoOrcamento(){
 export function atualizarModalNovoOrcamento(formulario, valoresPorQuantidade) {
     const containerResultados = formulario.querySelector('.modal__resultado-calculo');
     if (containerResultados) {
-        const exibicao = criarExibicaoValores(valoresPorQuantidade);
+        const inputQuantidade = formulario.querySelector('#input-qtd-bordados');
+        const quantidadeSelecionada = inputQuantidade ? Number(inputQuantidade.value) : 0;
+        const exibicao = criarExibicaoValores(valoresPorQuantidade, quantidadeSelecionada);
         containerResultados.replaceChildren(exibicao);
     }
 
